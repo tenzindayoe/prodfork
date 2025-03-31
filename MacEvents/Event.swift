@@ -23,7 +23,7 @@ struct Event: Hashable, Codable{
     enum Category: String, CaseIterable, Codable{
         case today = "Featured Events Today"
         case tomorrow = "Events happening tomorrow"
-//        case date = "Events on" + event.date
+//        case date = "Events on" + event.date ///
     }
     var image: Image{
         Image(place)
