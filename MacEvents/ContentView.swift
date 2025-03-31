@@ -9,13 +9,35 @@ import SwiftUI
 
 struct ContentView: View {
     var body: some View {
-       
-        VStack {
+        ZStack{
             Color(red: 1/255, green: 66/255, blue: 106/255).ignoresSafeArea()
-    
+            EventHome()
         }
-        .padding()
+//       Color(red: 1/255, green: 66/255, blue: 106/255).ignoresSafeArea()
+//    
+//        VStack{
+//            MapView()
+//                .frame(height: 400)
+//            
+//            }
+//    
+//        Spacer()
+//            
+//            Image("MacLogo")
+//                .aspectRatio(contentMode: .fit)
+//                .offset(x:0,y:-)
+//        
+//            Image("MacMap")
+//                .resizable()
+//                .aspectRatio(contentMode: .fit)
+//                .ignoresSafeArea()
+////                .padding()
+//                .offset(y:-140)
+            
+
+
     }
+
 }
 
 #Preview {
