@@ -14,7 +14,7 @@ struct HomePageRow: View {
     var sampleEvents: [String] = [ "eventSample","eventSample2","eventSample3"]
     
     //
-    var body: some View{
+    var body: some View {
         VStack(alignment: .leading) {
             Text(categoryName)
                 .font(.headline)
@@ -24,7 +24,7 @@ struct HomePageRow: View {
                 HStack(alignment: .top, spacing: 10) {
 //                    ForEach(sampleEvents) { event in
 //                        Text(event)
-                    }
+//                    }
                     
                     
                     //                ForEach(sampleEvents) {

@@ -8,9 +8,9 @@
 import Foundation
 import SwiftUI
 
-struct EventHome:View{
-    var body: some View{
-        NavigationSplitView{
+struct EventHome: View {
+    var body: some View {
+        NavigationSplitView {
             MapView()
                 .navigationTitle("MacEvents")
             HomePageRow(categoryName: "Today",

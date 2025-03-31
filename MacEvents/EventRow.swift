@@ -22,6 +22,4 @@ struct EventRow: View {
     }
 }
 #Preview {
-//    var sampleevent= Event(title: , place: <#T##String#>, date: <#T##String#>, time: <#T##String#>, description: <#T##String#>, favorited: <#T##Bool#>, category: <#T##Category#>, coordinates: <#T##Coordinates#>)
-//    EventRow(event: T##Event)
 }
