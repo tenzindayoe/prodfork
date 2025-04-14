@@ -13,15 +13,19 @@ struct EventRow: View {
             event.image
                 .resizable()
             VStack{
-                Text(event.title)
-                Text(event.place)
+                Text(event.title).bold()
+                Text(event.location)
                 Text(event.date)
+                Text(event.description)
             }
             Spacer()
         }
     }
 }
 #Preview {
+    let sampleEvent = Event(id: "hi", title: "Sample Event", location: "JanetWallace", date: "March 13th, 2025", time: "2:00 pm", description: "Cool event")
+    
+    EventRow(event: sampleEvent)
 }
 
 // test push/pull
