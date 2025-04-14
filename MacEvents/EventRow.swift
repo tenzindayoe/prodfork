@@ -20,8 +20,13 @@ struct EventRow: View {
             Spacer()
         }
     }
+    
 }
+
+
 #Preview {
+    var e = Event(title: "Library hours")
+    EventRow(event: e)
 }
 
 // test push/pull
