@@ -1,7 +1,7 @@
 //
 //  HomePageRow.swift
 //  MacEvents
-//
+// Row of Widgets by Date 
 //  Created by Iren Sanchez on 3/28/25.
 //
 

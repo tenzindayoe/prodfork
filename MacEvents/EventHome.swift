@@ -27,8 +27,7 @@ struct EventHome: View {
         NavigationSplitView {
             MapView()
                 .navigationTitle("MacEvents")
-<<<<<<< Updated upstream
-=======
+
             // test button for notifications
             
             Button() {
@@ -38,19 +37,6 @@ struct EventHome: View {
             } label: {
                 Text("Schedule Notification!")
             }
-            HomePageRow(categoryName: "Today",
-                        sampleEvents: Array(repeating: "sample", count: 4))
-            HomePageRow(categoryName: "Tomorrow",
-                        sampleEvents: Array(repeating: "sample", count: 4))
-            HomePageRow(categoryName: "Event.date",
-                        sampleEvents: Array(repeating: "sample", count: 4))
->>>>>>> Stashed changes
-            
-            HomePageRow(categoryName: "Today",
-                        sampleEvents: todayEvents)
-
-            HomePageRow(categoryName: "Tomorrow",
-                        sampleEvents: tomorrowEvents)
 
         } detail: {
             Text("Select Event")
