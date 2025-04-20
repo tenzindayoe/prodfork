@@ -17,7 +17,8 @@ struct Event: Identifiable, Codable {
     var date: String
     var time: String?
     var description: String
-    var favorited = false
+    var link: String
+    var coord: [Double]
 //    var category: String
     
     var image: Image{

@@ -10,9 +10,30 @@ import SwiftUI
 import MapKit
 
 struct EventCoordinatePins: View {
-    var events: [Event]
+    @State var events: [Event] = []
+   
     var body: some View {
         Map(initialPosition: .region(region))
+        
+        HStack {
+            ForEach(events) { event in
+                Text(event.title)
+            }
+        }
+        
+        .task {
+            do {
+                let url = URL(string: "http://127.0.0.1:5000/events")!
+                let (data, _) = try await URLSession.shared.data(from: url)
+                    
+                let eventData = try JSONDecoder().decode([Event].self, from: data)
+                events = eventData
+                
+                print("success")
+            } catch {
+                print("Yuck! Error getting event data:", error)
+            }
+        }
     }
     private var region: MKCoordinateRegion{
         MKCoordinateRegion(
@@ -21,6 +42,11 @@ struct EventCoordinatePins: View {
         )
     }
     
+    func addPin() {
+        let annotation = MKPointAnnotation()
+        annotation.coordinate = CLLocationCoordinate2D(latitude: events[0].coord[0], longitude: events[0].coord[1])
+        
+    }
     
 }
 
