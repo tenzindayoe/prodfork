@@ -22,7 +22,7 @@ struct EventWidget: View {
     }
 }
 #Preview {
-    let sampleEvent = Event(id: "hi", title: "Sample Event", location: "JanetWallace", date: "March 13th, 2025", time: "2:00 pm", description: "Cool event", link: "test link", coord: [1.00, 2.05])
+    let sampleEvent = Event(id: "hi", title: "Sample Event", location: "Janet Wallace Fine Arts Center", date: "March 13th, 2025", time: "2:00 pm", description: "Cool event", link: "test link", coord: [1.00, 2.05])
     
     EventWidget(event: sampleEvent)
 }
