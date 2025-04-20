@@ -23,7 +23,7 @@ struct HomePageRow: View {
             ScrollView(.horizontal,showsIndicators: false) {
                 HStack(alignment: .top, spacing: 10) {
                     ForEach(sampleEvents) { event in
-                        EventRow(event: event)
+                        EventWidget(event: event)
                     }
 //                    for event in sampleEvents {
 //                        /*@START_MENU_TOKEN@*/Text(event.title)/*@END_MENU_TOKEN@*/

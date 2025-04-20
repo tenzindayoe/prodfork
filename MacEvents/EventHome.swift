@@ -16,17 +16,10 @@ struct EventHome: View {
     @State var tomorrowEvents: [Event] = []
 
     var body: some View {
-//        let todaySampleEvent = Event(title: "Sample Event", place: "JanetWallace", date: "March 13th, 2025", time: "2:00 pm", description: "Cool event")
-//        let todaySampleEvent2 = Event(title: "Sample Event", place: "JanetWallace", date: "March 13th, 2025", time: "2:00 pm", description: "Cool event")
-//        let todaySampleEvent3 = Event(title: "Sample Event", place: "JanetWallace", date: "March 13th, 2025", time: "2:00 pm", description: "Cool event")
-//        let sampleEvent1 = Event(title: "Sample Event", place: "JanetWallace", date: "March 13th, 2025", time: "2:00 pm", description: "Cool event")
-//        let sampleEvent2 = Event(title: "Sample Event", place: "JanetWallace", date: "March 13th, 2025", time: "2:00 pm", description: "Cool event")
-//        let todaySampleEvents = [todaySampleEvent,todaySampleEvent2,todaySampleEvent3]
-//        let otherSampleEvents = [sampleEvent1, sampleEvent2]
-
         NavigationSplitView {
             MapView()
                 .navigationTitle("MacEvents")
+        
 
             // test button for notifications
             
@@ -37,6 +30,8 @@ struct EventHome: View {
             } label: {
                 Text("Schedule Notification!")
             }
+            
+            HomePageRow(categoryName: "Today", sampleEvents: todayEvents)
 
         } detail: {
             Text("Select Event")
