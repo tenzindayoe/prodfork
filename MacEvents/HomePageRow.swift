@@ -21,7 +21,7 @@ struct HomePageRow: View {
                 .padding(.leading,15)
                 .padding(.top,5)
             ScrollView(.vertical,showsIndicators: false) {
-                VStack(alignment: .leading, spacing: 20) {
+                VStack(alignment: .leading, spacing: 5) {
                     ForEach(sampleEvents) { event in
                         EventWidget(event: event)
                     }

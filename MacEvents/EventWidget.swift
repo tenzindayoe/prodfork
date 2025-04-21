@@ -9,16 +9,16 @@ import SwiftUI
 struct EventWidget: View {
     var event: Event
     var body: some View{
-        HStack{
-            event.image
-                .resizable()
-            VStack{
+            
+        VStack (alignment: .leading){
+                event.image
+                    .resizable()
                 Text(event.title).bold()
                 Text(event.location)
                 Text(event.date)
-            }
-            Spacer()
         }
+        .padding(20)
+        Spacer()
     }
 }
 #Preview {
