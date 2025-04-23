@@ -16,6 +16,7 @@ struct EventWidget: View {
                 Text(event.title).bold()
                 Text(event.location)
                 Text(event.date)
+//            Text(event.coord.joined(separator: ,))
         }
         .padding(20)
         Spacer()
