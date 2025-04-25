@@ -23,7 +23,17 @@ struct EventWidget: View {
     }
 }
 #Preview {
-    let sampleEvent = Event(id: "hi", title: "Sample Event", location: "Janet Wallace Fine Arts Center", date: "March 13th, 2025", time: "2:00 pm",link: "test link", coord: [1.00, 2.05])
+    let sampleEvent = Event(
+            id: "hi",
+            title: "Sample Event",
+            location: "Janet Wallace Fine Arts Center",
+            date: "March 13th, 2025",
+            time: "2:00 pm",
+            link: "test link",
+            starttime: "1400",
+            endtime: "1600",
+            coord: [1.00, 2.05]
+            )
     
     EventWidget(event: sampleEvent)
 }

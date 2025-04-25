@@ -18,6 +18,8 @@ struct Event: Identifiable, Codable {
     var time: String?
 //    var description: String
     var link: String
+    var starttime: String?
+    var endtime: String?
     var coord: [Double]?
 //    var category: String
     
