@@ -42,12 +42,6 @@ struct EventCoordinatePins: View {
         )
     }
     
-    func addPin() {
-        let annotation = MKPointAnnotation()
-        annotation.coordinate = CLLocationCoordinate2D(latitude: events[0].coord[0], longitude: events[0].coord[1])
-        
-    }
-    
 }
 
 #Preview {

@@ -16,9 +16,9 @@ struct Event: Identifiable, Codable {
     var location: String
     var date: String
     var time: String?
-    var description: String
+//    var description: String
     var link: String
-    var coord: [Double]
+    var coord: [Double]?
 //    var category: String
     
     var image: Image{
