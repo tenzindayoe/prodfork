@@ -15,7 +15,7 @@ struct EventCoordinatePins: View {
     var body: some View {
         Map(initialPosition: .region(region))
         
-        HStack {
+        VStack {
             ForEach(events) { event in
                 Text(event.title)
             }
