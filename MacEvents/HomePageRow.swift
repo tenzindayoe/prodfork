@@ -20,21 +20,16 @@ struct HomePageRow: View {
                 .font(.headline)
                 .padding(.leading,15)
                 .padding(.top,5)
-            ScrollView(.horizontal,showsIndicators: false) {
-                HStack(alignment: .top, spacing: 10) {
+            ScrollView(.vertical,showsIndicators: false) {
+                VStack(alignment: .leading, spacing: 5) {
                     ForEach(sampleEvents) { event in
                         EventWidget(event: event)
                     }
-//                    for event in sampleEvents {
-//                        /*@START_MENU_TOKEN@*/Text(event.title)/*@END_MENU_TOKEN@*/
-//                    }
-                    
-//                    }
                     
                 }
             }
         }
-        .frame(height: 105)
+        .frame(height: 600)
     }
 }
 #Preview {

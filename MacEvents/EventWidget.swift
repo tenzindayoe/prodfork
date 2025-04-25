@@ -9,20 +9,21 @@ import SwiftUI
 struct EventWidget: View {
     var event: Event
     var body: some View{
-        HStack{
-            event.image
-                .resizable()
-            VStack{
+            
+        VStack (alignment: .leading){
+                event.image
+                    .resizable()
                 Text(event.title).bold()
                 Text(event.location)
                 Text(event.date)
-            }
-            Spacer()
+//            Text(event.coord.joined(separator: ,))
         }
+        .padding(20)
+        Spacer()
     }
 }
 #Preview {
-    let sampleEvent = Event(id: "hi", title: "Sample Event", location: "JanetWallace", date: "March 13th, 2025", time: "2:00 pm", description: "Cool event", link: "test link", coord: [1.00, 2.05])
+    let sampleEvent = Event(id: "hi", title: "Sample Event", location: "Janet Wallace Fine Arts Center", date: "March 13th, 2025", time: "2:00 pm", description: "Cool event", link: "test link", coord: [1.00, 2.05])
     
     EventWidget(event: sampleEvent)
 }

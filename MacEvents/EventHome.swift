@@ -17,19 +17,19 @@ struct EventHome: View {
 
     var body: some View {
         NavigationSplitView {
-            MapView()
-                .navigationTitle("MacEvents")
+//            MapView()
+//                .navigationTitle("MacEvents")
         
 
             // test button for notifications
             
-            Button() {
-                Task {
-                    await scheduleNotification()
-                }
-            } label: {
-                Text("Schedule Notification!")
-            }
+//            Button() {
+//                Task {
+//                    await scheduleNotification()
+//                }
+//            } label: {
+//                Text("Schedule Notification!")
+//            }
             
             HomePageRow(categoryName: "Today", sampleEvents: todayEvents)
 
