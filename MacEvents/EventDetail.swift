@@ -16,6 +16,10 @@ struct EventDetail: View {
         VStack{
             CircleImage(image:event.image)
           
+            if event.coord != nil {
+                LocationMap(event: event)
+            }
+            event.image
             Text(event.date).bold()
             Text(event.link)
             Text(event.getDate())
@@ -23,6 +27,7 @@ struct EventDetail: View {
         .navigationTitle(event.title)
     }
 }
+
 #Preview {
     let sampleEvent = Event(
             id: "hi",
