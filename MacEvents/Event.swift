@@ -24,7 +24,7 @@ struct Event: Identifiable, Codable {
 //    var category: String
     
     var image: Image{
-        if let uiImage = UIImage(named: location){
+        if UIImage(named: location) != nil{
             Image(location)
         } else {
             Image("MacLogo")

@@ -9,23 +9,34 @@ import SwiftUI
 struct EventWidget: View {
     var event: Event
     var body: some View{
-            
-        VStack (alignment: .leading){
+        HStack{
+            NavigationLink{
+                EventDetail(event:event)
+            } label: {
                 event.image
                     .resizable()
-                Text(event.title).bold()
-                Text(event.location)
-                Text(event.date)
-//            Text(event.coord.joined(separator: ,))
+                    .aspectRatio(contentMode: .fit)
+                    .frame(width: 100, height: 100)
+            }
+            VStack (alignment: .leading){
+                NavigationLink{
+                    EventDetail(event:event)
+                } label: {
+                    Text(event.title).bold().multilineTextAlignment(.leading)
+                }
+                Text(event.date).multilineTextAlignment(.leading)
+                Text(event.location).multilineTextAlignment(.leading)
+               
+            }
+//            .padding(20)
+            Spacer()
         }
-        .padding(20)
-        Spacer()
     }
 }
 #Preview {
     let sampleEvent = Event(
             id: "hi",
-            title: "Sample Event",
+            title: "Sample Event Really reallt long title",
             location: "Janet Wallace Fine Arts Center",
             date: "March 13th, 2025",
             time: "2:00 pm",

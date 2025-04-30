@@ -14,7 +14,7 @@ struct EventDetail: View {
     var body: some View {
         VStack{
             event.image
-            Text(event.date)
+            Text(event.date).bold()
             Text(event.link)
         }
         .navigationTitle(event.title)
