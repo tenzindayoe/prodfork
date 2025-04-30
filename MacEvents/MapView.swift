@@ -11,6 +11,7 @@ import MapKit
 struct MapView: View {
     var body: some View {
         Map(initialPosition: .region(region))
+        
     }
     private var region: MKCoordinateRegion{
         MKCoordinateRegion(
@@ -18,8 +19,14 @@ struct MapView: View {
             span: MKCoordinateSpan(latitudeDelta: 0.005, longitudeDelta: 0.005)
         )
     }
+    var event: Event
+//    var mapCoordinate: MKPointAnnotation? {
+//        var latitude = event.coord? [0]
+//        var longitude = event.coord? [1]
+////        self.mapCoordinate?.coordinate = CLLocationCoordinate2D(latitude: latitude!, longitude: longitude!)
+////    }
 }
 
 #Preview {
-    MapView()
+    MKMapView()
 }

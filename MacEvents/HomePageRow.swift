@@ -23,15 +23,21 @@ struct HomePageRow: View {
             ScrollView(.vertical,showsIndicators: false) {
                 VStack(alignment: .leading, spacing: 5) {
                     ForEach(sampleEvents) { event in
-                        EventWidget(event: event)
+                        NavigationLink{
+                            EventDetail(event:event)
+                        } label: {
+                            EventWidget(event: event)
+                        }
                     }
-                    
+                       
                 }
+                    
             }
+            .frame(height: 600)
         }
-        .frame(height: 600)
     }
 }
+
 #Preview {
 //    var event1 = "event1"
 //    var event2 = "event2"

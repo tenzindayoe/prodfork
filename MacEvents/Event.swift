@@ -24,8 +24,13 @@ struct Event: Identifiable, Codable {
 //    var category: String
     
     var image: Image{
-        Image(location)
+        if let uiImage = UIImage(named: location){
+            Image(location)
+        } else {
+            Image("MacLogo")
+        }
     }
+    
 //    private var coordinates : Coordinates
 //    var locationCoordinate: CLLocationCoordinate2D{
 //        CLLocationCoordinate2D(
@@ -46,6 +51,7 @@ struct Event: Identifiable, Codable {
         print(formattedDate)
         return formattedDate
     }
+
     
 //    mutating func setCategory(event: Event){
 //        let currentDate = getDate()
