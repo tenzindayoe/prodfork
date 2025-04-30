@@ -30,10 +30,9 @@ public struct LocationMap: View {
             bounds: MapCameraBounds(centerCoordinateBounds: region,
                                     minimumDistance: 450,
                                     maximumDistance: 450)) {
-                
                 Marker(coordinate: eventCoord) {
                     Text(event.location)
-            }
-        }
+                }
+        } .mapStyle(.hybrid)
     }
 }
