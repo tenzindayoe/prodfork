@@ -12,10 +12,13 @@ struct EventDetail: View {
     let event: Event
     
     var body: some View {
+        
         VStack{
-            event.image
+            CircleImage(image:event.image)
+          
             Text(event.date).bold()
             Text(event.link)
+            Text(event.getDate())
         }
         .navigationTitle(event.title)
     }
