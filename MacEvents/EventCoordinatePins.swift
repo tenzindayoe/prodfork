@@ -33,7 +33,7 @@ struct EventCoordinatePins: View {
                         eventCoord = nil
                     }
                 }) {
-                    Text(event.wrappedValue.title)
+                    EventWidget(event: event.wrappedValue)
                 }
             }
         }
