@@ -36,7 +36,7 @@ struct EventWidget: View {
 #Preview {
     let sampleEvent = Event(
             id: "hi",
-            title: "Sample Event Really reallt long title",
+            title: "Sample Event Really really long title",
             location: "Janet Wallace Fine Arts Center",
             date: "March 13th, 2025",
             time: "2:00 pm",
