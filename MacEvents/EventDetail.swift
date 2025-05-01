@@ -14,17 +14,24 @@ struct EventDetail: View {
     var body: some View {
         
         VStack{
-            CircleImage(image:event.image)
-          
             if event.coord != nil {
                 LocationMap(event: event)
+                    .frame(height:350)
+                    .padding(.top,-230)
             }
-            event.image
-            Text(event.date).bold()
-            Text(event.link)
-            Text(event.getDate())
+            CircleImage(image:event.image)
+                .offset(y: -130)
+                .padding(.bottom,-130)
+            VStack(alignment: .leading) {
+                Text(event.title)
+                    .font(.title)
+                Divider()
+                Text("Date: \(event.date)")
+                Text(event.link)
+            }
+            .padding(.leading)
         }
-        .navigationTitle(event.title)
+        .navigationTitle(event.title).bold()
     }
 }
 

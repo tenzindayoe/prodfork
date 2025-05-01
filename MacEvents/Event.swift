@@ -31,27 +31,16 @@ struct Event: Identifiable, Codable {
         }
     }
     
-//    private var coordinates : Coordinates
-//    var locationCoordinate: CLLocationCoordinate2D{
-//        CLLocationCoordinate2D(
-//            latitude: coordinates.latitude,
-//            longitude: coordinates.longitude)
-//    }
-//        
-//    struct Coordinates: Hashable,Codable {
-//        var latitude: Double
-//        var longitude: Double
-//    }
-    
     func getDate() -> String {
         let currentDate = Date()
         let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "YY,MMM d"
+        dateFormatter.dateFormat = "MMM dd, YYYY"
         let formattedDate = dateFormatter.string(from: currentDate)
         print(formattedDate)
         return formattedDate
     }
 
+  
     
 //    mutating func setCategory(event: Event){
 //        let currentDate = getDate()
