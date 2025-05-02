@@ -11,7 +11,8 @@ import SwiftUI
 
 struct HomePageRow: View {
     var categoryName: String
-    var sampleEvents: [Event]
+    var eventArray: [Event]
+    let currentDate = Date()
     
     
     var body: some View {
@@ -22,10 +23,7 @@ struct HomePageRow: View {
                 .padding(.top,5)
             ScrollView(.vertical,showsIndicators: false) {
                 VStack(alignment: .leading, spacing: 5) {
-                    ForEach(sampleEvents) { event in
-//                        NavigationLink{
-//                            EventDetail(event:event)
-//                        } label: {
+                    ForEach(eventArray) { event in
                            EventWidget(event: event)
             
                         }

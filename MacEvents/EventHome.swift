@@ -12,6 +12,7 @@ import UserNotifications
 
 struct EventHome: View {
     
+    @State var allEvents: [Event] = []
     @State var todayEvents: [Event] = []
     @State var tomorrowEvents: [Event] = []
 
@@ -31,7 +32,7 @@ struct EventHome: View {
 //                Text("Schedule Notification!")
 //            }
             
-            HomePageRow(categoryName: "Today", sampleEvents: todayEvents)
+            HomePageRow(categoryName: "Today", eventArray: allEvents)
 
         } detail: {
             Text("Select Event")
@@ -42,7 +43,7 @@ struct EventHome: View {
                 let (data, _) = try await URLSession.shared.data(from: url)
                 
                 let events = try JSONDecoder().decode([Event].self, from: data)
-                todayEvents = events
+                allEvents = events
             } catch {
                 print("Yuck! Error getting event data:", error)
             }

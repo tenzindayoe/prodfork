@@ -31,14 +31,65 @@ struct Event: Identifiable, Codable {
         }
     }
     
-    func getDate() -> String {
-        let currentDate = Date()
+//    func getDate() -> Date {
+//        let currentDate = Date()
+//        let dateFormatter = DateFormatter()
+//        dateFormatter.dateFormat = "EEEE, MMMM dd, yyyy"
+//        let formattedDate = dateFormatter.string(from: currentDate)
+//        print(formattedDate)
+//        return formattedDate
+//    }/  
+    
+    func formatDate() -> Date {
+        let eventDate = self.date
         let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "MMM dd, YYYY"
-        let formattedDate = dateFormatter.string(from: currentDate)
-        print(formattedDate)
-        return formattedDate
+        dateFormatter.dateFormat = "EEEE, MMMM dd, yyyy"
+        let formattedEventDate = dateFormatter.date(from: eventDate)
+        return formattedEventDate!
     }
+        
+        
+
+//        var month: String
+//        let noDayDate : String
+//        
+//        let space = self.date.firstIndex(of: " ")!
+//        noDayDate = String(self.date[space...])
+//        let monthSpace = noDayDate.firstIndex(of: " ")!
+//        month = String(noDayDate[...monthSpace])
+//        let dateAndYear = noDayDate[space...]
+//        let formattedDate = dateFormatter.string(from: noDayDate)
+        
+//        switch month  {
+//        case "January":
+//            month = "Jan"
+//        case "February":
+//            month = "Feb"
+//        case "March":
+//            month = "Mar"
+//        case "April":
+//            month = "Apr"
+//        case "May":
+//            month = "May"
+//        case "June":
+//            month = "Jan"
+//        case "July":
+//            month = "Jan"
+//        case "August":
+//            month = "Aug"
+//        case "September":
+//            month = "May"
+//        case "June":
+//            month = "Jan"
+//        case "July":
+//            month = "Jan"
+//        case "August":
+//            month = "Aug"
+//        default:
+//            <#otherwise, do something else#>
+//        }
+        
+    
 
   
     
