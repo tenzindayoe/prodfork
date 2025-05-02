@@ -26,13 +26,14 @@ struct EventWidget: View {
                 }
                 Text(event.date).multilineTextAlignment(.leading)
                 Text(event.location).multilineTextAlignment(.leading)
-               
             }
-//            .padding(20)
+            //            .padding(20)
             Spacer()
+            //        }
         }
     }
 }
+
 #Preview {
     let sampleEvent = Event(
             id: "hi",
@@ -40,6 +41,7 @@ struct EventWidget: View {
             location: "Janet Wallace Fine Arts Center",
             date: "March 13th, 2025",
             time: "2:00 pm",
+            description: "test description",
             link: "test link",
             starttime: "1400",
             endtime: "1600",

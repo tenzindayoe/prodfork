@@ -28,6 +28,7 @@ struct EventDetail: View {
                 Divider()
                 Text("Date: \(event.date)")
                 Text(event.link)
+                Text(event.description)
             }
             .padding(.leading)
         }
@@ -42,6 +43,7 @@ struct EventDetail: View {
             location: "Janet Wallace Fine Arts Center",
             date: "March 13th, 2025",
             time: "2:00 pm",
+            description: "test description",
             link: "test link",
             starttime: "1400",
             endtime: "1600",
