@@ -12,9 +12,15 @@ import UserNotifications
 
 struct EventHome: View {
     
+    @State private var favoriteEventIDs: Set<String> = []
+
+    
     @State var allEvents: [Event] = []
     @State var todayEvents: [Event] = []
     @State var tomorrowEvents: [Event] = []
+    
+ 
+
 
     var body: some View {
         NavigationSplitView {
@@ -22,17 +28,9 @@ struct EventHome: View {
 //                .navigationTitle("MacEvents")
         
 
-            // test button for notifications
+        
             
-//            Button() {
-//                Task {
-//                    await scheduleNotification()
-//                }
-//            } label: {
-//                Text("Schedule Notification!")
-//            }
-            
-            HomePageRow(categoryName: "Today", eventArray: allEvents)
+            HomePageRow(categoryName: "Today", eventArray: allEvents, favoriteEventIDs: $favoriteEventIDs)
 
         } detail: {
             Text("Select Event")
@@ -76,8 +74,8 @@ struct EventHome: View {
         
         // Set time to 10:00 AM every day, this will later on be changed to event time and day, 10Am is just an example
         var dateComponents = DateComponents()
-        dateComponents.hour = 14
-        dateComponents.minute = 55
+        dateComponents.hour = 8
+        dateComponents.minute = 31
         
         let trigger = UNCalendarNotificationTrigger(dateMatching: dateComponents, repeats: true)
         

@@ -1,4 +1,3 @@
-//
 //  EventDetail.swift
 //  MacEvents
 //
@@ -51,4 +50,3 @@ struct EventDetail: View {
             )
     EventDetail(event: sampleEvent)
 }
-

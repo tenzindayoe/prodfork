@@ -8,6 +8,7 @@
 import SwiftUI
 struct EventWidget: View {
     var event: Event
+    @Binding var favoriteEventIDs: Set<String>
     var body: some View{
         HStack{
             NavigationLink{
@@ -24,6 +25,23 @@ struct EventWidget: View {
                 } label: {
                     Text(event.title).bold().multilineTextAlignment(.leading)
                 }
+                
+             
+                Spacer()
+                
+                // favorite button 
+                Button(action: {
+                          if favoriteEventIDs.contains(event.id) {
+                              favoriteEventIDs.remove(event.id)
+                          } else {
+                              favoriteEventIDs.insert(event.id)
+                          }
+                      }) {
+                          Image(systemName: favoriteEventIDs.contains(event.id) ? "heart.fill" : "heart")
+                              .foregroundColor(favoriteEventIDs.contains(event.id) ? .red : .gray)
+                      }
+                  }
+            
                 Text(event.date).multilineTextAlignment(.leading)
                 Text(event.location).multilineTextAlignment(.leading)
             }
@@ -32,7 +50,7 @@ struct EventWidget: View {
             //        }
         }
     }
-}
+
 
 #Preview {
     let sampleEvent = Event(
@@ -48,7 +66,7 @@ struct EventWidget: View {
             coord: [1.00, 2.05]
             )
     
-    EventWidget(event: sampleEvent)
+    return EventWidget(event: sampleEvent, favoriteEventIDs: .constant(Set<String>()))
 }
 
 // test push/pull
