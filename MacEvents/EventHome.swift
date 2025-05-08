@@ -13,26 +13,22 @@ import UserNotifications
 struct EventHome: View {
     
     @State var allEvents: [Event] = []
-    @State var todayEvents: [Event] = []
-    @State var tomorrowEvents: [Event] = []
+    
+    var currentTime = Date()
+
+    var displayedEvents: [Event] {
+        allEvents.filter { event in
+            var eventDate = event.formatDate()
+            return eventDate == currentTime
+        }
+    }
+
+    
 
     var body: some View {
         NavigationSplitView {
-//            MapView()
-//                .navigationTitle("MacEvents")
-        
-
-            // test button for notifications
-            
-//            Button() {
-//                Task {
-//                    await scheduleNotification()
-//                }
-//            } label: {
-//                Text("Schedule Notification!")
-//            }
-            
-            HomePageRow(categoryName: "Today", eventArray: allEvents)
+            HomePageRow(categoryName: "Today", eventArray: displayedEvents)
+                        .navigationTitle("MacEvents")
 
         } detail: {
             Text("Select Event")
@@ -48,7 +44,9 @@ struct EventHome: View {
                 print("Yuck! Error getting event data:", error)
             }
         }
+
     }
+    
     
     // Notification function
     func scheduleNotification() async  {
@@ -93,6 +91,7 @@ struct EventHome: View {
             print("Failed to schedule notification: \(error)")
         }
     }
+    
 }
 #Preview{
     EventHome()

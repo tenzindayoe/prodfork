@@ -24,17 +24,17 @@ struct HomePageRow: View {
             ScrollView(.vertical,showsIndicators: false) {
                 VStack(alignment: .leading, spacing: 5) {
                     ForEach(eventArray) { event in
-                           EventWidget(event: event)
-            
-                        }
+                       EventWidget(event: event)
+        
                     }
-                       
                 }
-                    
+                       
             }
-            .frame(height: 600)
+                    
         }
+        .frame(height: 600)
     }
+}
 
 
 #Preview {
