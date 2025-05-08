@@ -24,17 +24,12 @@ struct EventHome: View {
 
     var body: some View {
         NavigationSplitView {
-//            MapView()
-//                .navigationTitle("MacEvents")
-        
-
-        
-            
             HomePageRow(categoryName: "Today", eventArray: allEvents, favoriteEventIDs: $favoriteEventIDs)
 
         } detail: {
             Text("Select Event")
         }
+        
         .task {
             do {
                 let url = URL(string: "http://127.0.0.1:5000/events")!

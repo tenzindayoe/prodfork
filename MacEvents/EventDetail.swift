@@ -15,23 +15,31 @@ struct EventDetail: View {
         VStack{
             if event.coord != nil {
                 LocationMap(event: event)
-                    .frame(height:350)
-                    .padding(.top,-230)
+                    .frame(height:400)
+                    .padding(.top,-90)
             }
             CircleImage(image:event.image)
                 .offset(y: -130)
                 .padding(.bottom,-130)
             VStack(alignment: .leading) {
                 Text(event.title)
-                    .font(.title)
+                    .font(.title2)
+                    .bold()
+                Text(event.date)
+                    .font(.title3)
+                    .bold()
                 Divider()
-                Text("Date: \(event.date)")
-                Text(event.link)
-                Text(event.description)
+                ScrollView {
+                    Text(event.description)
+                    Spacer()
+                    Link("More Info",
+                         destination: URL(string: event.link)!)
+
+                }
             }
             .padding(.leading)
         }
-        .navigationTitle(event.title).bold()
+        .navigationTitle(event.title)
     }
 }
 
@@ -43,7 +51,7 @@ struct EventDetail: View {
             date: "March 13th, 2025",
             time: "2:00 pm",
             description: "test description",
-            link: "test link",
+            link: "google.com",
             starttime: "1400",
             endtime: "1600",
             coord: [1.00, 2.05]
