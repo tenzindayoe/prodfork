@@ -41,7 +41,9 @@ struct EventHome: View {
                 print("Yuck! Error getting event data:", error)
             }
         }
+
     }
+    
     
     // Notification function
     func scheduleNotification() async  {
@@ -86,6 +88,7 @@ struct EventHome: View {
             print("Failed to schedule notification: \(error)")
         }
     }
+    
 }
 #Preview{
     EventHome()

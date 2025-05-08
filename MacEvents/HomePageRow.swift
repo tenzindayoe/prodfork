@@ -31,13 +31,14 @@ struct HomePageRow: View {
             
                         }
                     }
-                       
                 }
-                    
+                       
             }
-            .frame(height: 600)
+                    
         }
+        .frame(height: 600)
     }
+}
 
 
 #Preview {
