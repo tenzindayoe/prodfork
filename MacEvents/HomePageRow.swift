@@ -34,11 +34,9 @@ struct HomePageRow: View {
                 }
                        
             }
-                    
-        }
         .frame(height: 600)
+        }
     }
-}
 
 
 #Preview {
