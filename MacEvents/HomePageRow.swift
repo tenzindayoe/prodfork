@@ -13,6 +13,9 @@ struct HomePageRow: View {
     var categoryName: String
     var eventArray: [Event]
     let currentDate = Date()
+    // added this
+    @Binding var favoriteEventIDs: Set<String>
+
     
     
     var body: some View {
@@ -24,8 +27,9 @@ struct HomePageRow: View {
             ScrollView(.vertical,showsIndicators: false) {
                 VStack(alignment: .leading, spacing: 5) {
                     ForEach(eventArray) { event in
-                       EventWidget(event: event)
-        
+                           EventWidget(event: event, favoriteEventIDs: $favoriteEventIDs)
+            
+                        }
                     }
                 }
                        
