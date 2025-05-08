@@ -15,7 +15,7 @@ struct HomePageRow: View {
     let currentDate = Date()
     // added this
     @Binding var favoriteEventIDs: Set<String>
-
+    
     
     
     var body: some View {
@@ -24,28 +24,29 @@ struct HomePageRow: View {
                 .font(.headline)
                 .padding(.leading,15)
                 .padding(.top,5)
-            ScrollView(.vertical,showsIndicators: false) {
-                VStack(alignment: .leading, spacing: 5) {
-                    ForEach(eventArray) { event in
-                           EventWidget(event: event, favoriteEventIDs: $favoriteEventIDs)
-            
-                        }
-                    }
+            //            ScrollView(.vertical,showsIndicators: false) {
+            VStack(alignment: .leading, spacing: 5) {
+                ForEach(eventArray) { event in
+                    EventWidget(event: event, favoriteEventIDs: $favoriteEventIDs)
+                    
                 }
-                       
             }
-        .frame(height: 600)
         }
+        
     }
-
-
-#Preview {
-//    var event1 = "event1"
-//    var event2 = "event2"
-//    var event3 = "event3"
-
-//    HomePageRow(categoryName: "Tomorrow",
-//                sampleEvents: Array(repeating: "sample", count: 4))
-//    HomePageRow(categoryName: "Event.date",
-//                sampleEvents: Array(repeating: "sample", count: 4))
+    //        .frame(height: 600)
+    //        }
+    //    }
+    
+    
+    #Preview {
+        //    var event1 = "event1"
+        //    var event2 = "event2"
+        //    var event3 = "event3"
+        
+        //    HomePageRow(categoryName: "Tomorrow",
+        //                sampleEvents: Array(repeating: "sample", count: 4))
+        //    HomePageRow(categoryName: "Event.date",
+        //                sampleEvents: Array(repeating: "sample", count: 4))
+    }
 }

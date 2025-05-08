@@ -25,26 +25,24 @@ struct EventWidget: View {
                 } label: {
                     Text(event.title).bold().multilineTextAlignment(.leading)
                 }
+//                Spacer()
                 
-             
-                Spacer()
-                
-                // favorite button 
-                Button(action: {
-                          if favoriteEventIDs.contains(event.id) {
-                              favoriteEventIDs.remove(event.id)
-                          } else {
-                              favoriteEventIDs.insert(event.id)
-                          }
-                      }) {
-                          Image(systemName: favoriteEventIDs.contains(event.id) ? "heart.fill" : "heart")
-                              .foregroundColor(favoriteEventIDs.contains(event.id) ? .red : .gray)
-                      }
-                  }
+                // favorite button
             
                 Text(event.date).multilineTextAlignment(.leading)
                 Text(event.location).multilineTextAlignment(.leading)
             }
+            Button(action: {
+                      if favoriteEventIDs.contains(event.id) {
+                          favoriteEventIDs.remove(event.id)
+                      } else {
+                          favoriteEventIDs.insert(event.id)
+                      }
+                  }) {
+                      Image(systemName: favoriteEventIDs.contains(event.id) ? "heart.fill" : "heart")
+                          .foregroundColor(favoriteEventIDs.contains(event.id) ? .red : .gray)
+                  }
+              }
             //            .padding(20)
             Spacer()
             //        }

@@ -13,18 +13,31 @@ import UserNotifications
 struct EventHome: View {
     
     @State private var favoriteEventIDs: Set<String> = []
-
-    
     @State var allEvents: [Event] = []
-    @State var todayEvents: [Event] = []
-    @State var tomorrowEvents: [Event] = []
+    var todayEvents: [Event] {
+        let currentTime = Date()
+        return allEvents.filter { event in
+               let eventDate = event.formatDate()
+               return Calendar.current.isDate(eventDate, inSameDayAs: currentTime)
+           }
+       }
+    var futureEvents: [Event] {
+        let calendar = Calendar.current
+        let currentTime = Date()
+        let tomorrow = calendar.date(byAdding: .day, value: 1, to: currentTime)!
+        return allEvents.filter { event in
+               let eventDate = event.formatDate()
+            return Calendar.current.isDate(eventDate, inSameDayAs: tomorrow)
+           }
+       }
     
- 
-
-
     var body: some View {
+       
         NavigationSplitView {
-            HomePageRow(categoryName: "Today", eventArray: allEvents, favoriteEventIDs: $favoriteEventIDs)
+            ScrollView(.vertical,showsIndicators: false) {
+                HomePageRow(categoryName: "Today", eventArray: todayEvents, favoriteEventIDs: $favoriteEventIDs)
+                HomePageRow(categoryName: "Tomorrow", eventArray: futureEvents, favoriteEventIDs: $favoriteEventIDs)
+            }
 
         } detail: {
             Text("Select Event")
