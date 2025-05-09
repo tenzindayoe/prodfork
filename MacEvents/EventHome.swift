@@ -21,7 +21,7 @@ struct EventHome: View {
                return Calendar.current.isDate(eventDate, inSameDayAs: currentTime)
            }
        }
-    var futureEvents: [Event] {
+    var tomorrowEvents: [Event] {
         let calendar = Calendar.current
         let currentTime = Date()
         let tomorrow = calendar.date(byAdding: .day, value: 1, to: currentTime)!
@@ -32,12 +32,13 @@ struct EventHome: View {
        }
     
     var body: some View {
+        
        
         NavigationSplitView {
             ScrollView(.vertical,showsIndicators: false) {
                 HomePageRow(categoryName: "Today", eventArray: todayEvents, favoriteEventIDs: $favoriteEventIDs)
-                HomePageRow(categoryName: "Tomorrow", eventArray: futureEvents, favoriteEventIDs: $favoriteEventIDs)
-            }
+                HomePageRow(categoryName: "Tomorrow", eventArray: tomorrowEvents, favoriteEventIDs: $favoriteEventIDs)
+            }.navigationTitle("MacEvents")
 
         } detail: {
             Text("Select Event")

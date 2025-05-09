@@ -11,12 +11,12 @@ struct EventDetail: View {
     let event: Event
     
     var body: some View {
-        
         VStack{
             if event.coord != nil {
                 LocationMap(event: event)
                     .frame(height:400)
                     .padding(.top,-90)
+                
             }
             CircleImage(image:event.image)
                 .offset(y: -130)
@@ -39,7 +39,7 @@ struct EventDetail: View {
             }
             .padding(.leading)
         }
-        .navigationTitle(event.title)
+        .navigationTitle(event.title).
     }
 }
 
@@ -47,14 +47,14 @@ struct EventDetail: View {
     let sampleEvent = Event(
             id: "hi",
             title: "Sample Event",
-            location: "Janet Wallace Fine Arts Center",
+            location:"Macalester",
             date: "March 13th, 2025",
             time: "2:00 pm",
             description: "test description",
             link: "google.com",
             starttime: "1400",
             endtime: "1600",
-            coord: [1.00, 2.05]
+            coord: [1.00,2.00]
             )
     EventDetail(event: sampleEvent)
 }

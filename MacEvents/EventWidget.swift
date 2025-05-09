@@ -10,6 +10,7 @@ struct EventWidget: View {
     var event: Event
     @Binding var favoriteEventIDs: Set<String>
     var body: some View{
+        Spacer()
         HStack{
             NavigationLink{
                 EventDetail(event:event)
