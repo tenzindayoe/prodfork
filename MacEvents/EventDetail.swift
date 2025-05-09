@@ -15,6 +15,7 @@ struct EventDetail: View {
     var body: some View {
         VStack{
             if event.coord != nil {
+                let defaultTime = "None Specified"
                 LocationMap(event: event)
                     .frame(height:400)
                     .padding(.top,-90)
@@ -28,7 +29,7 @@ struct EventDetail: View {
                     Text(event.date)
                         .font(.title3)
                         .bold()
-                    Text("Time: \(event.time!)")
+                    Text("Time: \(event.time ?? defaultTime)")
                     Divider()
                     ScrollView {
                         VStack{
@@ -42,6 +43,7 @@ struct EventDetail: View {
                     }
                 }.padding(.leading)
             } else {
+                let defaultTime = "None Specified"
                 CircleImage(image:Image("MacLogoTextless"))
                     .offset(y: -130)
                     .padding(.bottom,-130)
@@ -53,7 +55,7 @@ struct EventDetail: View {
                     Text(event.date)
                         .font(.title3)
                         .bold()
-                    Text("Time: \(event.time!)")
+                    Text("Time: \(event.time ?? defaultTime)")
                     Divider()
                     ScrollView {
                         VStack{
@@ -80,7 +82,7 @@ struct EventDetail: View {
             title: "Sample Event",
             location:"Macalester",
             date: "March 13th, 2025",
-            time: "2:00 pm",
+            time: nil,
             description: "test description",
             link: "google.com",
             starttime: "1400",
