@@ -37,8 +37,11 @@ struct EventWidget: View {
             Button(action: {
                       if favoriteEventIDs.contains(event.id) {
                           favoriteEventIDs.remove(event.id)
+                          NotificationManager.shared.cancelNotification(for: event)
                       } else {
                           favoriteEventIDs.insert(event.id)
+                          NotificationManager.shared.scheduleNotification(for: event)
+
                       }
             }){
                       Image(systemName: favoriteEventIDs.contains(event.id) ? "heart.fill" : "heart")

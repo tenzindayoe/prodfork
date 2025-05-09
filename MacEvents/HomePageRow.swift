@@ -12,7 +12,6 @@ import SwiftUI
 struct HomePageRow: View {
     var categoryName: String
     var eventArray: [Event]
-    // added this
     @Binding var favoriteEventIDs: Set<String>
     
     
