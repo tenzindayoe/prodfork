@@ -6,6 +6,8 @@
 
 import Foundation
 import SwiftUI
+import CoreLocation
+import MapKit
 
 struct EventDetail: View {
     let event: Event
@@ -79,7 +81,7 @@ struct EventDetail: View {
             link: "google.com",
             starttime: "1400",
             endtime: "1600",
-            coord: nil
+            coord: [1.00, 2.00]
             )
     EventDetail(event: sampleEvent)
 }

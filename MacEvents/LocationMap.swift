@@ -10,6 +10,7 @@ import MapKit
 
 public struct LocationMap: View {
     var event: Event
+    let locationManager: CLLocationManager = CLLocationManager()
     
     init(event: Event) {
         self.event = event
@@ -33,6 +34,10 @@ public struct LocationMap: View {
                 Marker(coordinate: eventCoord) {
                     Text(event.location)
                 }
+            UserAnnotation()
         } .mapStyle(.hybrid)
+            .onAppear {
+                locationManager.requestWhenInUseAuthorization()
+            }
     }
 }

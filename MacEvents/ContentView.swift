@@ -6,12 +6,14 @@
 //
 
 import SwiftUI
+import CoreLocation
 
 struct ContentView: View {
     var body: some View {
         ZStack{
             Color(red: 1/255, green: 66/255, blue: 106/255).ignoresSafeArea()
             EventHome()
+                
         }
 //       Color(red: 1/255, green: 66/255, blue: 106/255).ignoresSafeArea()
 //    
