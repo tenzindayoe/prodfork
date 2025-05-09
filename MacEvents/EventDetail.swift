@@ -26,12 +26,15 @@ struct EventDetail: View {
                     Text(event.date)
                         .font(.title3)
                         .bold()
+                    Text("Time: \(event.time!)")
                     Divider()
                     ScrollView {
-                        Text(event.description)
-                        Spacer()
-                        Link("More Info",
-                             destination: URL(string: event.link)!)
+                        VStack (alignment: .leading){
+    
+                            Text(event.description)
+                            Link("More Info",
+                                 destination: URL(string: event.link)!)
+                        }
 
                     }
                 }
@@ -53,7 +56,7 @@ struct EventDetail: View {
                         Text(event.description)
                         Spacer()
                         Link("More Info",
-                             destination: URL(string: event.link)!)
+                             destination: URL(string: event.link)!).offset(x:-20)
 
                     }
                 }
@@ -61,7 +64,7 @@ struct EventDetail: View {
             }
 
         }
-        .navigationTitle(event.title).
+        .navigationTitle(event.title)
     }
 }
 

@@ -12,7 +12,6 @@ import SwiftUI
 struct HomePageRow: View {
     var categoryName: String
     var eventArray: [Event]
-    let currentDate = Date()
     // added this
     @Binding var favoriteEventIDs: Set<String>
     
@@ -22,18 +21,20 @@ struct HomePageRow: View {
         VStack(alignment: .leading) {
             Text(categoryName)
                 .font(.headline)
-                .padding(.leading,15)
-                .padding(.top,5)
+                .padding(.leading,-5)
+                .padding(.top)
+                .bold()
             //            ScrollView(.vertical,showsIndicators: false) {
-            VStack(alignment: .leading, spacing: 5) {
+            VStack(alignment: .leading) {
                 ForEach(eventArray) { event in
                     EventWidget(event: event, favoriteEventIDs: $favoriteEventIDs)
                     
                 }
             }
-        }
+        }.padding()
         
     }
+}
     //        .frame(height: 600)
     //        }
     //    }
@@ -49,4 +50,3 @@ struct HomePageRow: View {
         //    HomePageRow(categoryName: "Event.date",
         //                sampleEvents: Array(repeating: "sample", count: 4))
     }
-}

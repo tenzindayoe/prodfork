@@ -30,6 +30,15 @@ struct EventHome: View {
             return Calendar.current.isDate(eventDate, inSameDayAs: tomorrow)
            }
        }
+    var futureEvents: [Event] {
+        let calendar = Calendar.current
+        let currentTime = Date()
+        let tomorrow = calendar.date(byAdding: .day, value: 1, to: currentTime)!
+        return allEvents.filter { event in
+               let eventDate = event.formatDate()
+            return eventDate > tomorrow
+           }
+       }
     
     var body: some View {
         
@@ -38,6 +47,9 @@ struct EventHome: View {
             ScrollView(.vertical,showsIndicators: false) {
                 HomePageRow(categoryName: "Today", eventArray: todayEvents, favoriteEventIDs: $favoriteEventIDs)
                 HomePageRow(categoryName: "Tomorrow", eventArray: tomorrowEvents, favoriteEventIDs: $favoriteEventIDs)
+                HomePageRow(categoryName: "Future Events", eventArray: futureEvents, favoriteEventIDs: $favoriteEventIDs)
+                
+                
             }.navigationTitle("MacEvents")
 
         } detail: {
