@@ -29,38 +29,42 @@ struct EventDetail: View {
                     Text("Time: \(event.time!)")
                     Divider()
                     ScrollView {
-                        VStack (alignment: .leading){
-    
+                        VStack{
                             Text(event.description)
-                            Link("More Info",
-                                 destination: URL(string: event.link)!)
-                        }
-
+                            Spacer()
+                        }.frame(width: 375, height: 250)
                     }
-                }
-                .padding(.leading)
+                    VStack {
+                        Link("More Info",
+                             destination: URL(string: event.link)!)
+                    }
+                }.padding(.leading)
             } else {
                 CircleImage(image:Image("MacLogoTextless"))
                     .offset(y: -130)
                     .padding(.bottom,-130)
                     .padding(.top, 140)
-                VStack(alignment: .leading) {
+                VStack(alignment:.leading) {
                     Text(event.title)
                         .font(.title2)
                         .bold()
                     Text(event.date)
                         .font(.title3)
                         .bold()
+                    Text("Time: \(event.time!)")
                     Divider()
                     ScrollView {
-                        Text(event.description)
-                        Spacer()
-                        Link("More Info",
-                             destination: URL(string: event.link)!).offset(x:-20)
-
+                        VStack{
+                            Text(event.description)
+                            Spacer()
+                        }.frame(width: 375, height: 300)
                     }
-                }
-                .padding(.leading)
+                    VStack {
+                        Link("More Info",
+                             destination: URL(string: event.link)!)
+                    }
+                }.padding(.leading)
+               
             }
 
         }
