@@ -24,17 +24,17 @@ struct Event: Identifiable, Codable {
 //    var category: String
     
     var image: Image{
-        if location.contains("Janet"){
-            return Image("Janet Wallace Fine Arts Center")
-        } else if location.contains("Olin")
-       
+        //        if location.contains("Janet"){
+        //            return Image("Janet Wallace Fine Arts Center")
+        //        } else if location.contains("Olin")
+        //       
+        //    }
+        if UIImage(named: location) != nil{
+            Image(location)
+        } else {
+            Image("MacLogo")
+        }
     }
-//    if UIImage(named: location) != nil{
-//        Image(location)
-//    } else {
-//        Image("MacLogo")
-//    }
-    
 //    func getDate() -> Date {
 //        let currentDate = Date()
 //        let dateFormatter = DateFormatter()
