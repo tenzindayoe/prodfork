@@ -35,9 +35,11 @@ struct EventDetail: View {
                     Link("More Info",
                          destination: URL(string: event.link)!)
 
+                    }
                 }
+                .padding(.leading)
             }
-            .padding(.leading)
+
         }
         .navigationTitle(event.title)
     }
@@ -54,7 +56,7 @@ struct EventDetail: View {
             link: "google.com",
             starttime: "1400",
             endtime: "1600",
-            coord: [1.00, 2.05]
+            coord: nil
             )
     EventDetail(event: sampleEvent)
 }
