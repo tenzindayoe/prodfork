@@ -17,23 +17,44 @@ struct EventDetail: View {
                 LocationMap(event: event)
                     .frame(height:400)
                     .padding(.top,-90)
-            }
-            CircleImage(image:event.image)
-                .offset(y: -130)
-                .padding(.bottom,-130)
-            VStack(alignment: .leading) {
-                Text(event.title)
-                    .font(.title2)
-                    .bold()
-                Text(event.date)
-                    .font(.title3)
-                    .bold()
-                Divider()
-                ScrollView {
-                    Text(event.description)
-                    Spacer()
-                    Link("More Info",
-                         destination: URL(string: event.link)!)
+                CircleImage(image:event.image)
+                    .offset(y: -130)
+                    .padding(.bottom,-130)
+                VStack(alignment: .leading) {
+                    Text(event.title)
+                        .font(.title2)
+                        .bold()
+                    Text(event.date)
+                        .font(.title3)
+                        .bold()
+                    Divider()
+                    ScrollView {
+                        Text(event.description)
+                        Spacer()
+                        Link("More Info",
+                             destination: URL(string: event.link)!)
+
+                    }
+                }
+                .padding(.leading)
+            } else {
+                CircleImage(image:Image("MacLogoTextless"))
+                    .offset(y: -130)
+                    .padding(.bottom,-130)
+                    .padding(.top, 140)
+                VStack(alignment: .leading) {
+                    Text(event.title)
+                        .font(.title2)
+                        .bold()
+                    Text(event.date)
+                        .font(.title3)
+                        .bold()
+                    Divider()
+                    ScrollView {
+                        Text(event.description)
+                        Spacer()
+                        Link("More Info",
+                             destination: URL(string: event.link)!)
 
                     }
                 }
