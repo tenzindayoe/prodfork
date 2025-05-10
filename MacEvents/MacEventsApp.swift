@@ -11,10 +11,10 @@ import SwiftUI
 struct MacEventsApp: App {
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            EventHome()
         }
-        
     }
+    
     init() {
         UNUserNotificationCenter.current().delegate = NotificationDelegate.shared
     }
