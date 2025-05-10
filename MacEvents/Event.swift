@@ -1,7 +1,7 @@
 //
 //  Event.swift
 //  MacEvents
-//
+//  A structure that creates event object.
 //  Created by Iren Sanchez on 3/23/25.
 //
 
@@ -23,17 +23,21 @@ struct Event: Identifiable, Codable, Comparable {
     var coord: [Double]?
     
     var image: Image{
-        //        if location.contains("Janet"){
-        //            return Image("Janet Wallace Fine Arts Center")
-        //        } else if location.contains("Olin")
-        //
-        //    }
-        if UIImage(named: location) != nil{
-            Image(location)
+        if location.contains("Janet"){
+            return Image("Janet Wallace Fine Arts Center")
+        } else if location.contains("Olin") {
+            return Image ("Olin Rice")
         } else {
-            Image("MacLogo")
+            return Image("MacLogo")
         }
         }
+    
+//        if UIImage(named: location) != nil{
+//            Image(location)
+//        } else {
+//            Image("MacLogo")
+//        }
+//        }
     func formatDate() -> Date {
         let eventDate = self.date
         let dateFormatter = DateFormatter()
