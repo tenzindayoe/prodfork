@@ -20,8 +20,8 @@ struct EventDetail: View {
                     .frame(height:400)
                     .padding(.top,-90)
                 CircleImage(image:event.image)
-                    .offset(y: -130)
-                    .padding(.bottom,-130)
+                    .offset(y: -115)
+                    .padding(.bottom,-120)
                 VStack(alignment: .leading) {
                     Text(event.title)
                         .font(.title2)
@@ -35,12 +35,13 @@ struct EventDetail: View {
                         VStack{
                             Text(event.description)
                             Spacer()
-                        }.frame(width: 375, height: 250)
+                        }.frame(width: 357)
                     }
                     VStack {
                         Link("More Info",
                              destination: URL(string: event.link)!)
-                    }
+                    } .frame(width: 357, alignment: .center)
+                        .offset(y: -10)
                 }.padding(.leading)
             } else {
                 let defaultTime = "None Specified"
@@ -61,18 +62,20 @@ struct EventDetail: View {
                         VStack{
                             Text(event.description)
                             Spacer()
-                        }.frame(width: 375, height: 300)
+                        }.frame(width: 357)
                     }
                     VStack {
                         Link("More Info",
                              destination: URL(string: event.link)!)
-                    }
-                }.padding(.leading)
+                    } .frame(width: 375, alignment: .center)
+                        .offset(y: -10)
+                }
+                .padding(.leading)
                
             }
 
         }
-        .navigationTitle(event.title)
+//        .navigationTitle(event.title)
     }
 }
 

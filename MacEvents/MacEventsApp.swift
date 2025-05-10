@@ -11,7 +11,6 @@ import SwiftUI
 struct MacEventsApp: App {
     var body: some Scene {
         WindowGroup {
-//            Event(title: "Sample", place: "SamplePlace", date: "June 30", time: "12:00-1:00", description: "Dexpriction", coordinates: 44.938056,-93.168494)
             ContentView()
         }
         

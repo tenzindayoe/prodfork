@@ -8,9 +8,10 @@
 import Foundation
 import SwiftUI
 import UserNotifications
-
+import CoreLocation
 
 struct EventHome: View {
+    let locationManager = CLLocationManager()
     
     @State private var favoriteEventIDs: Set<String> = []
     @State var allEvents: [Event] = []
@@ -55,10 +56,14 @@ struct EventHome: View {
         } detail: {
             Text("Select Event")
         }
-        
+        .onAppear {
+            locationManager.requestWhenInUseAuthorization()
+        }
         .task {
             // Calling to request notification permission
                NotificationManager.shared.requestPermission()
+            
+            // API call to server to retrieve events data
             do {
                 let url = URL(string: "http://127.0.0.1:5000/events")!
                 let (data, _) = try await URLSession.shared.data(from: url)

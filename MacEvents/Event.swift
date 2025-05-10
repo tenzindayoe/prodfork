@@ -21,13 +21,12 @@ struct Event: Identifiable, Codable {
     var starttime: String?
     var endtime: String?
     var coord: [Double]?
-//    var category: String
     
     var image: Image{
         //        if location.contains("Janet"){
         //            return Image("Janet Wallace Fine Arts Center")
         //        } else if location.contains("Olin")
-        //       
+        //
         //    }
         if UIImage(named: location) != nil{
             Image(location)

@@ -1,7 +1,12 @@
 {
   "images" : [
     {
-      "filename" : "Screenshot 2025-03-26 at 12.26.09 PM copy.png",
+      "filename" : "MacLogoProfessional 1.jpeg",
+      "idiom" : "universal",
+      "scale" : "1x"
+    },
+    {
+      "filename" : "MacLogoProfessional.jpeg",
       "idiom" : "universal",
       "scale" : "1x"
     },

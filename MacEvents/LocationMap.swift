@@ -22,10 +22,16 @@ public struct LocationMap: View {
                                             longitude: event.coord![1])
         
         let region: MKCoordinateRegion =
+        (locationManager.authorizationStatus == CLAuthorizationStatus.authorizedWhenInUse
+         && locationManager.location != nil) ?
+            MKCoordinateRegion(
+                center: midpointBetweenPoints(coord1: eventCoord, coord2: locationManager.location!.coordinate),
+                span: MKCoordinateSpan(latitudeDelta: 0.02, longitudeDelta: 0.02)) :
             MKCoordinateRegion(
                 center: eventCoord,
-                span: MKCoordinateSpan(latitudeDelta: 0.005, longitudeDelta: 0.005)
+                span: MKCoordinateSpan(latitudeDelta: 0.02, longitudeDelta: 0.02)
             )
+
         
         Map(initialPosition: .region(region),
             bounds: MapCameraBounds(centerCoordinateBounds: region,
@@ -36,8 +42,12 @@ public struct LocationMap: View {
                 }
             UserAnnotation()
         } .mapStyle(.hybrid)
-            .onAppear {
-                locationManager.requestWhenInUseAuthorization()
-            }
+    }
+    
+    func midpointBetweenPoints(coord1: CLLocationCoordinate2D, coord2: CLLocationCoordinate2D) -> CLLocationCoordinate2D {
+        
+        let newLat: Double = (coord1.latitude + coord2.latitude) / 2
+        let newLong: Double = (coord1.longitude + coord2.longitude) / 2
+        return CLLocationCoordinate2D(latitude: newLat, longitude: newLong)
     }
 }
