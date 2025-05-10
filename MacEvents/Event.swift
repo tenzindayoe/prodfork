@@ -10,7 +10,7 @@ import SwiftUI
 import CoreLocation
 
 
-struct Event: Identifiable, Codable {
+struct Event: Identifiable, Codable, Comparable {
     var id: String
     var title: String
     var location: String
@@ -50,7 +50,17 @@ struct Event: Identifiable, Codable {
         let formattedEventDate = dateFormatter.date(from: eventDate)
         return formattedEventDate!
     }
-        
+    static func < (lhs : Event, rhs: Event ) -> Bool {
+        return lhs.formatDate() < rhs.formatDate()
+    }
+    static func > (lhs : Event, rhs: Event ) -> Bool {
+        return lhs.formatDate() > rhs.formatDate()
+    }
+    static func == (lhs : Event, rhs: Event ) -> Bool {
+        return lhs.formatDate() == rhs.formatDate() && rhs.formatDate() == lhs.formatDate()
+    }
+    
+   
         
 
 //        var month: String

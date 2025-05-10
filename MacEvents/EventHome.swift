@@ -12,35 +12,33 @@ import CoreLocation
 
 struct EventHome: View {
     let locationManager = CLLocationManager()
-    
     @State private var favoriteEventIDs: Set<String> = []
     @State var allEvents: [Event] = []
     var todayEvents: [Event] {
         let currentTime = Date()
         return allEvents.filter { event in
-               let eventDate = event.formatDate()
-               return Calendar.current.isDate(eventDate, inSameDayAs: currentTime)
-           }
-       }
+            let eventDate = event.formatDate()
+            return Calendar.current.isDate(eventDate, inSameDayAs: currentTime)
+        }
+    }
     var tomorrowEvents: [Event] {
         let calendar = Calendar.current
         let currentTime = Date()
         let tomorrow = calendar.date(byAdding: .day, value: 1, to: currentTime)!
         return allEvents.filter { event in
-               let eventDate = event.formatDate()
+            let eventDate = event.formatDate()
             return Calendar.current.isDate(eventDate, inSameDayAs: tomorrow)
-           }
-       }
+        }
+    }
     var futureEvents: [Event] {
         let calendar = Calendar.current
         let currentTime = Date()
         let tomorrow = calendar.date(byAdding: .day, value: 1, to: currentTime)!
         return allEvents.filter { event in
-               let eventDate = event.formatDate()
+            let eventDate = event.formatDate()
             return eventDate > tomorrow
-           }
-       }
-    
+        }.sorted(by: <)
+    }
     var body: some View {
         
        
@@ -74,9 +72,7 @@ struct EventHome: View {
                 print("Yuck! Error getting event data:", error)
             }
         }
-      
-
-    }
+}
     
     
     
