@@ -17,11 +17,11 @@ struct EventDetail: View {
             if event.coord != nil {
                 let defaultTime = "None Specified"
                 LocationMap(event: event)
-                    .frame(height:400)
+                    .frame(height:550)
                     .padding(.top,-90)
                 CircleImage(image:event.image)
-                    .offset(y: -115)
-                    .padding(.bottom,-120)
+                    .offset(y: -130)
+                    .padding(.bottom,-130)
                 VStack(alignment: .leading) {
                     Text(event.title)
                         .font(.title2)
@@ -35,14 +35,14 @@ struct EventDetail: View {
                         VStack{
                             Text(event.description)
                             Spacer()
-                        }.frame(width: 357)
+                        }.frame(width: 410)
                     }
                     VStack {
                         Link("More Info",
                              destination: URL(string: event.link)!)
-                    } .frame(width: 357, alignment: .center)
-                        .offset(y: -10)
-                }.padding(.leading)
+                    } .frame(width: 410, alignment: .center)
+                }
+                .padding(.leading)
             } else {
                 let defaultTime = "None Specified"
                 CircleImage(image:Image("MacLogoTextless"))
@@ -62,13 +62,12 @@ struct EventDetail: View {
                         VStack{
                             Text(event.description)
                             Spacer()
-                        }.frame(width: 357)
+                        }.frame(width: 410)
                     }
                     VStack {
                         Link("More Info",
                              destination: URL(string: event.link)!)
-                    } .frame(width: 375, alignment: .center)
-                        .offset(y: -10)
+                    } .frame(width: 410, alignment: .center)
                 }
                 .padding(.leading)
                
@@ -90,7 +89,7 @@ struct EventDetail: View {
             link: "google.com",
             starttime: "1400",
             endtime: "1600",
-            coord: [1.00, 2.00]
+            coord: nil
             )
     EventDetail(event: sampleEvent)
 }
