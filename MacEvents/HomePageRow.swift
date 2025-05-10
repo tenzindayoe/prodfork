@@ -23,29 +23,13 @@ struct HomePageRow: View {
                 .padding(.leading,-5)
                 .padding(.top)
                 .bold()
-            //            ScrollView(.vertical,showsIndicators: false) {
             VStack(alignment: .leading) {
                 ForEach(eventArray) { event in
                     EventWidget(event: event, favoriteEventIDs: $favoriteEventIDs)
                     
                 }
             }
-        }.padding()
-        
+        }
+        .padding()
     }
 }
-    //        .frame(height: 600)
-    //        }
-    //    }
-    
-    
-    #Preview {
-        //    var event1 = "event1"
-        //    var event2 = "event2"
-        //    var event3 = "event3"
-        
-        //    HomePageRow(categoryName: "Tomorrow",
-        //                sampleEvents: Array(repeating: "sample", count: 4))
-        //    HomePageRow(categoryName: "Event.date",
-        //                sampleEvents: Array(repeating: "sample", count: 4))
-    }

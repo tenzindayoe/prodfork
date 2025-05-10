@@ -62,19 +62,20 @@ struct EventDetail: View {
                         VStack{
                             Text(event.description)
                             Spacer()
-                        }.frame(width: 410)
+                        }
+                        .frame(width: 410)
                     }
                     VStack {
                         Link("More Info",
                              destination: URL(string: event.link)!)
-                    } .frame(width: 410, alignment: .center)
+                    }
+                    .frame(width: 410, alignment: .center)
                 }
                 .padding(.leading)
                
             }
 
         }
-//        .navigationTitle(event.title)
     }
 }
 

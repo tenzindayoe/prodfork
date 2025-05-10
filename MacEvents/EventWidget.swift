@@ -9,9 +9,9 @@ import SwiftUI
 struct EventWidget: View {
     var event: Event
     @Binding var favoriteEventIDs: Set<String>
-    var body: some View{
+    var body: some View {
         Spacer()
-        HStack{
+        HStack {
             NavigationLink{
                 EventDetail(event:event)
             } label: {
@@ -20,16 +20,12 @@ struct EventWidget: View {
                     .aspectRatio(contentMode: .fit)
                     .frame(width: 100, height: 100)
             }
-            VStack (alignment: .leading){
+            VStack (alignment: .leading) {
                 NavigationLink{
                     EventDetail(event:event)
                 } label: {
                     Text(event.title).bold().multilineTextAlignment(.leading)
                 }
-//                Spacer()
-                
-                // favorite button
-            
                 Text(event.date).multilineTextAlignment(.leading)
                 Text(event.location).multilineTextAlignment(.leading)
             }
@@ -41,19 +37,14 @@ struct EventWidget: View {
                       } else {
                           favoriteEventIDs.insert(event.id)
                           NotificationManager.shared.scheduleNotification(for: event)
-
                       }
             }){
-                      Image(systemName: favoriteEventIDs.contains(event.id) ? "heart.fill" : "heart")
+                Image(systemName: favoriteEventIDs.contains(event.id) ? "heart.fill" : "heart")
                           .foregroundColor(favoriteEventIDs.contains(event.id) ? .red : .gray)
-                  }
-              }
-            //            .padding(20)
-//            Spacer()
-            //        }
-        }
+                }
+            }
     }
-
+}
 
 #Preview {
     let sampleEvent = Event(
@@ -71,5 +62,3 @@ struct EventWidget: View {
     
     return EventWidget(event: sampleEvent, favoriteEventIDs: .constant(Set<String>()))
 }
-
-// test push/pull

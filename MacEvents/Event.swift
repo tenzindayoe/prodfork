@@ -33,16 +33,7 @@ struct Event: Identifiable, Codable, Comparable {
         } else {
             Image("MacLogo")
         }
-    }
-//    func getDate() -> Date {
-//        let currentDate = Date()
-//        let dateFormatter = DateFormatter()
-//        dateFormatter.dateFormat = "EEEE, MMMM dd, yyyy"
-//        let formattedDate = dateFormatter.string(from: currentDate)
-//        print(formattedDate)
-//        return formattedDate
-//    }/  
-    
+        }
     func formatDate() -> Date {
         let eventDate = self.date
         let dateFormatter = DateFormatter()
@@ -51,75 +42,14 @@ struct Event: Identifiable, Codable, Comparable {
         return formattedEventDate!
     }
     static func < (lhs : Event, rhs: Event ) -> Bool {
-        return lhs.formatDate() < rhs.formatDate()
+            return lhs.formatDate() < rhs.formatDate()
     }
     static func > (lhs : Event, rhs: Event ) -> Bool {
-        return lhs.formatDate() > rhs.formatDate()
+            return lhs.formatDate() > rhs.formatDate()
     }
     static func == (lhs : Event, rhs: Event ) -> Bool {
-        return lhs.formatDate() == rhs.formatDate() && rhs.formatDate() == lhs.formatDate()
+            return lhs.formatDate() == rhs.formatDate() && rhs.formatDate() == lhs.formatDate()
     }
-    
-   
-        
-
-//        var month: String
-//        let noDayDate : String
-//        
-//        let space = self.date.firstIndex(of: " ")!
-//        noDayDate = String(self.date[space...])
-//        let monthSpace = noDayDate.firstIndex(of: " ")!
-//        month = String(noDayDate[...monthSpace])
-//        let dateAndYear = noDayDate[space...]
-//        let formattedDate = dateFormatter.string(from: noDayDate)
-        
-//        switch month  {
-//        case "January":
-//            month = "Jan"
-//        case "February":
-//            month = "Feb"
-//        case "March":
-//            month = "Mar"
-//        case "April":
-//            month = "Apr"
-//        case "May":
-//            month = "May"
-//        case "June":
-//            month = "Jan"
-//        case "July":
-//            month = "Jan"
-//        case "August":
-//            month = "Aug"
-//        case "September":
-//            month = "May"
-//        case "June":
-//            month = "Jan"
-//        case "July":
-//            month = "Jan"
-//        case "August":
-//            month = "Aug"
-//        default:
-//            <#otherwise, do something else#>
-//        }
-        
-    
-
-  
-    
-//    mutating func setCategory(event: Event){
-//        let currentDate = getDate()
-//        let eventDate = event.date
-//        if currentDate == eventDate {
-//            self.category = "Today"
-//        }
-//        else {
-//            self.category = currentDate
-//        }
-//    }
-    
-//    mutating func favorite(){
-//        self.favorited = true
-//    }
     
 }
 

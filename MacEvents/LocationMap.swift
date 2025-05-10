@@ -2,7 +2,7 @@
 //  LocationMap.swift
 //  MacEvents
 //
-//  Created by Marvin Contreras on 4/30/25.
+//  Created by Marvin Swift on 4/30/25.
 //
 
 import SwiftUI

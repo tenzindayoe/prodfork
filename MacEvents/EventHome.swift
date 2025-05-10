@@ -14,6 +14,7 @@ struct EventHome: View {
     let locationManager = CLLocationManager()
     @State private var favoriteEventIDs: Set<String> = []
     @State var allEvents: [Event] = []
+    
     var todayEvents: [Event] {
         let currentTime = Date()
         return allEvents.filter { event in
@@ -37,11 +38,12 @@ struct EventHome: View {
         return allEvents.filter { event in
             let eventDate = event.formatDate()
             return eventDate > tomorrow
-        }.sorted(by: <)
+        }
+        .sorted(by: <)
     }
     var body: some View {
         
-       
+
         NavigationSplitView {
             ScrollView(.vertical,showsIndicators: false) {
                 HomePageRow(categoryName: "Today", eventArray: todayEvents, favoriteEventIDs: $favoriteEventIDs)
@@ -49,7 +51,8 @@ struct EventHome: View {
                 HomePageRow(categoryName: "Future Events", eventArray: futureEvents, favoriteEventIDs: $favoriteEventIDs)
                 
                 
-            }.navigationTitle("MacEvents")
+            }
+            .navigationTitle("MacEvents")
 
         } detail: {
             Text("Select Event")
@@ -72,15 +75,9 @@ struct EventHome: View {
                 print("Yuck! Error getting event data:", error)
             }
         }
-}
-    
-    
-    
-    
-    
-    
+    }
    
 }
-#Preview{
+#Preview {
     EventHome()
 }
