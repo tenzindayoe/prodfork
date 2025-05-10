@@ -27,17 +27,36 @@ struct Event: Identifiable, Codable, Comparable {
             return Image("Janet Wallace Fine Arts Center")
         } else if location.contains("Olin") {
             return Image ("Olin Rice")
+        } else if location.contains("DeWitt") {
+            return Image ("DeWitt Wallace Library")
+        } else if location.contains("Music") {
+            return Image ("Janet Wallace Fine Arts Center")
+        } else if location.contains("Janet") {
+            return Image ("Janet Wallace Fine Arts Center")
+        } else if location.contains("Theater") {
+                return Image ("Janet Wallace Fine Arts Center")
+        } else if location.contains("Dance") {
+                return Image ("Janet Wallace Fine Arts Center")
+        } else if location.contains("Campus Center") {
+                return Image ("Campus Center")
+        } else if location.contains("Lawn") {
+                return Image ("Great Lawn")
+        } else if location.contains("Kagin") {
+            return Image ("Kagin")
+        } else if location.contains("Stadium") {
+            return Image ("Stadium")
+        } else if location.contains("Leonard") {
+            return Image ("Leonard")
+        } else if location.contains("Markim") {
+            return Image ("MarkimHall")
+        } else if location.contains("Main") {
+            return Image ("OldMain")
+        } else if location.contains("Chapel") {
+            return Image ("Wayerhaeuser Chapel")
         } else {
             return Image("MacLogo")
         }
-        }
-    
-//        if UIImage(named: location) != nil{
-//            Image(location)
-//        } else {
-//            Image("MacLogo")
-//        }
-//        }
+    }
     func formatDate() -> Date {
         let eventDate = self.date
         let dateFormatter = DateFormatter()
