@@ -18,7 +18,8 @@ struct EventDetail: View {
                 let defaultTime = "None Specified"
                 LocationMap(event: event)
                     .frame(height:550)
-                    .padding(.top,-90)
+                    .padding(.top,-100)
+                    .offset(y: 20)
                 CircleImage(image:event.image)
                     .offset(y: -130)
                     .padding(.bottom,-130)
@@ -84,13 +85,13 @@ struct EventDetail: View {
             id: "hi",
             title: "Sample Event",
             location:"Macalester",
-            date: "March 13th, 2025",
+            date: "Sunday, March 13th, 2025",
             time: nil,
             description: "test description",
             link: "google.com",
             starttime: "1400",
             endtime: "1600",
-            coord: nil
+            coord: [44.93749, -93.16959]
             )
     EventDetail(event: sampleEvent)
 }
