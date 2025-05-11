@@ -26,7 +26,7 @@ struct EventDetail: View {
                     .padding(.top,-100)
                     .offset(y: 20)
                 
-                CircleImage(image:event.image)
+                CircleImage(image:event.circleImage)
                     .offset(y: -130)
                     .padding(.bottom,-130)
                 

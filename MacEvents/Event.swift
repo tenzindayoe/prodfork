@@ -23,8 +23,40 @@ struct Event: Identifiable, Codable, Comparable {
     var starttime: String?
     var endtime: String?
     var coord: [Double]?
+    var widgetImage: Image {
+        return setImage(location: location, defaultImage: "MacLogo")
+    }
     
-    var image: Image{
+    var circleImage: Image {
+        return setImage(location: location, defaultImage: "MacLogoTextless")
+    }
+    
+    /**
+     Converts date string into a date object for comparison
+     */
+    func formatDate() -> Date {
+        let eventDate = self.date
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "EEEE, MMMM dd, yyyy"
+        let formattedEventDate = dateFormatter.date(from: eventDate)
+        return formattedEventDate!
+    }
+    
+    static func < (lhs : Event, rhs: Event ) -> Bool {
+            return lhs.formatDate() < rhs.formatDate()
+    }
+    static func > (lhs : Event, rhs: Event ) -> Bool {
+            return lhs.formatDate() > rhs.formatDate()
+    }
+    static func == (lhs : Event, rhs: Event ) -> Bool {
+            return lhs.formatDate() == rhs.formatDate() && rhs.formatDate() == lhs.formatDate()
+    }
+    
+    /**
+     Returns an image based on event location with a different default
+     image depending on what the image is being used for
+     */
+    func setImage(location: String, defaultImage: String) -> Image {
         if location.contains("Janet"){
             return Image("Janet Wallace Fine Arts Center")
         } else if location.contains("Olin") {
@@ -54,32 +86,12 @@ struct Event: Identifiable, Codable, Comparable {
         } else if location.contains("Main") {
             return Image ("OldMain")
         } else if location.contains("Chapel") {
-            return Image ("Wayerhaeuser Chapel")
+            return Image ("Weyerhaeuser Chapel")
+        } else if location.contains("Weyerhaeuser Hall") {
+            return Image ("Weyerhaeuser Hall")
         } else {
-            return Image("MacLogo")
+            return Image(defaultImage)
         }
     }
-    
-    /**
-     Converts date string into a date object for comparison
-     */
-    func formatDate() -> Date {
-        let eventDate = self.date
-        let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "EEEE, MMMM dd, yyyy"
-        let formattedEventDate = dateFormatter.date(from: eventDate)
-        return formattedEventDate!
-    }
-    
-    static func < (lhs : Event, rhs: Event ) -> Bool {
-            return lhs.formatDate() < rhs.formatDate()
-    }
-    static func > (lhs : Event, rhs: Event ) -> Bool {
-            return lhs.formatDate() > rhs.formatDate()
-    }
-    static func == (lhs : Event, rhs: Event ) -> Bool {
-            return lhs.formatDate() == rhs.formatDate() && rhs.formatDate() == lhs.formatDate()
-    }
-    
 }
 

@@ -20,7 +20,7 @@ struct EventWidget: View {
             NavigationLink{
                 EventDetail(event:event)
             } label: {
-                event.image
+                event.widgetImage
                     .resizable()
                     .aspectRatio(contentMode: .fit)
                     .frame(width: 100, height: 100)
