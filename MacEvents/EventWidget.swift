@@ -8,7 +8,7 @@
 import SwiftUI
 
 ///
-/// A small rectangle showing the basic information of an event
+/// A small rectangle showing the basic information of an event along with heart to favorite
 ///
 struct EventWidget: View {
     var event: Event

@@ -16,8 +16,6 @@ struct HomePageColumn: View {
     var eventArray: [Event]
     @Binding var favoriteEventIDs: Set<String>
     
-    
-    
     var body: some View {
         VStack(alignment: .leading) {
             Text(categoryName)

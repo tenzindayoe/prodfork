@@ -17,7 +17,7 @@ struct EventHome: View {
     let locationManager = CLLocationManager()
     @State private var favoriteEventIDs: Set<String> = []
     @State var allEvents: [Event] = []
-    
+    // Array of Event objects that match todays current date
     var todayEvents: [Event] {
         let currentTime = Date()
         return allEvents.filter { event in
@@ -25,6 +25,7 @@ struct EventHome: View {
             return Calendar.current.isDate(eventDate, inSameDayAs: currentTime)
         }
     }
+    // Array of Event objects that match tomorrow's date
     var tomorrowEvents: [Event] {
         let calendar = Calendar.current
         let currentTime = Date()
@@ -34,6 +35,7 @@ struct EventHome: View {
             return Calendar.current.isDate(eventDate, inSameDayAs: tomorrow)
         }
     }
+    // Array of Event objects that are greater than tomorrow's date and are sorted by ascending order
     var futureEvents: [Event] {
         let calendar = Calendar.current
         let currentTime = Date()

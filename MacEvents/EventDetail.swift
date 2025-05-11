@@ -12,7 +12,8 @@ import MapKit
 ///
 /// The navigation view page where all event details
 /// are available after clicking on corresponding event widget
-/// 
+/// Return different view depending on whether there are event coordinates or not
+///
 struct EventDetail: View {
     let event: Event
     
