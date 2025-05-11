@@ -9,6 +9,10 @@ import SwiftUI
 import CoreLocation
 import MapKit
 
+///
+/// The navigation view page where all event details
+/// are available after clicking on corresponding event widget
+/// 
 struct EventDetail: View {
     let event: Event
     
@@ -16,13 +20,16 @@ struct EventDetail: View {
         VStack{
             if event.coord != nil {
                 let defaultTime = "None Specified"
+                
                 LocationMap(event: event)
                     .frame(height:550)
                     .padding(.top,-100)
                     .offset(y: 20)
+                
                 CircleImage(image:event.image)
                     .offset(y: -130)
                     .padding(.bottom,-130)
+                
                 VStack(alignment: .leading) {
                     Text(event.title)
                         .font(.title2)
@@ -31,25 +38,31 @@ struct EventDetail: View {
                         .font(.title3)
                         .bold()
                     Text("Time: \(event.time ?? defaultTime)")
+                    
                     Divider()
+                    
                     ScrollView {
                         VStack{
                             Text(event.description)
                             Spacer()
                         }.frame(width: 410)
                     }
+                    
                     VStack {
                         Link("More Info",
-                             destination: URL(string: event.link)!)
+                             destination: URL(
+                                string: event.link)!)
                     } .frame(width: 410, alignment: .center)
                 }
                 .padding(.leading)
             } else {
                 let defaultTime = "None Specified"
+                
                 CircleImage(image:Image("MacLogoTextless"))
                     .offset(y: -130)
                     .padding(.bottom,-130)
                     .padding(.top, 140)
+                
                 VStack(alignment:.leading) {
                     Text(event.title)
                         .font(.title2)
@@ -58,7 +71,9 @@ struct EventDetail: View {
                         .font(.title3)
                         .bold()
                     Text("Time: \(event.time ?? defaultTime)")
+                    
                     Divider()
+                    
                     ScrollView {
                         VStack{
                             Text(event.description)
@@ -66,9 +81,11 @@ struct EventDetail: View {
                         }
                         .frame(width: 410)
                     }
+                    
                     VStack {
                         Link("More Info",
-                             destination: URL(string: event.link)!)
+                             destination: URL(
+                                string: event.link)!)
                     }
                     .frame(width: 410, alignment: .center)
                 }

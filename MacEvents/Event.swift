@@ -9,7 +9,9 @@ import Foundation
 import SwiftUI
 import CoreLocation
 
-
+///
+/// A struct that represents a Macalester event
+///
 struct Event: Identifiable, Codable, Comparable {
     var id: String
     var title: String
@@ -57,6 +59,10 @@ struct Event: Identifiable, Codable, Comparable {
             return Image("MacLogo")
         }
     }
+    
+    /**
+     Converts date string into a date object for comparison
+     */
     func formatDate() -> Date {
         let eventDate = self.date
         let dateFormatter = DateFormatter()
@@ -64,6 +70,7 @@ struct Event: Identifiable, Codable, Comparable {
         let formattedEventDate = dateFormatter.date(from: eventDate)
         return formattedEventDate!
     }
+    
     static func < (lhs : Event, rhs: Event ) -> Bool {
             return lhs.formatDate() < rhs.formatDate()
     }

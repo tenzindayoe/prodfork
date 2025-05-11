@@ -10,6 +10,9 @@ import SwiftUI
 import UserNotifications
 import CoreLocation
 
+///
+/// The main view of the app, a list of stacked homepage columns
+///
 struct EventHome: View {
     let locationManager = CLLocationManager()
     @State private var favoriteEventIDs: Set<String> = []
@@ -46,11 +49,18 @@ struct EventHome: View {
 
         NavigationSplitView {
             ScrollView(.vertical,showsIndicators: false) {
-                HomePageRow(categoryName: "Today", eventArray: todayEvents, favoriteEventIDs: $favoriteEventIDs)
-                HomePageRow(categoryName: "Tomorrow", eventArray: tomorrowEvents, favoriteEventIDs: $favoriteEventIDs)
-                HomePageRow(categoryName: "Future Events", eventArray: futureEvents, favoriteEventIDs: $favoriteEventIDs)
-                
-                
+                HomePageColumn(
+                    categoryName: "Today",
+                    eventArray: todayEvents,
+                    favoriteEventIDs: $favoriteEventIDs)
+                HomePageColumn(
+                    categoryName: "Tomorrow",
+                    eventArray: tomorrowEvents,
+                    favoriteEventIDs: $favoriteEventIDs)
+                HomePageColumn(
+                    categoryName: "Future Events",
+                    eventArray: futureEvents,
+                    favoriteEventIDs: $favoriteEventIDs)
             }
             .navigationTitle("MacEvents")
 
@@ -58,6 +68,7 @@ struct EventHome: View {
             Text("Select Event")
         }
         .onAppear {
+            // Optional permission for placing user pin on map
             locationManager.requestWhenInUseAuthorization()
         }
         .task {

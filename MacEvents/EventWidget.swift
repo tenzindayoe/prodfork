@@ -6,9 +6,14 @@
 //
 
 import SwiftUI
+
+///
+/// A small rectangle showing the basic information of an event
+///
 struct EventWidget: View {
     var event: Event
     @Binding var favoriteEventIDs: Set<String>
+    
     var body: some View {
         Spacer()
         HStack {
@@ -24,12 +29,17 @@ struct EventWidget: View {
                 NavigationLink{
                     EventDetail(event:event)
                 } label: {
-                    Text(event.title).bold().multilineTextAlignment(.leading)
+                    Text(event.title)
+                        .bold().multilineTextAlignment(.leading)
                 }
-                Text(event.date).multilineTextAlignment(.leading)
-                Text(event.location).multilineTextAlignment(.leading)
+                Text(event.date)
+                    .multilineTextAlignment(.leading)
+                Text(event.location)
+                    .multilineTextAlignment(.leading)
             }
+            
             Spacer()
+            
             Button(action: {
                       if favoriteEventIDs.contains(event.id) {
                           favoriteEventIDs.remove(event.id)

@@ -6,6 +6,9 @@
 //
 import UserNotifications
 
+///
+/// A class representing the notification as delivered to the user
+///
 class NotificationDelegate: NSObject, UNUserNotificationCenterDelegate {
     static let shared = NotificationDelegate()
 

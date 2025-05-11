@@ -8,6 +8,10 @@
 import SwiftUI
 import MapKit
 
+///
+/// A map view on which event location and user
+/// location (if permitted) are displayed
+///
 public struct LocationMap: View {
     var event: Event
     

@@ -7,6 +7,10 @@
 import Foundation
 import UserNotifications
 
+///
+/// A class that handles asking for permission and
+/// sending notifications to the user
+///
 class NotificationManager {
     static let shared = NotificationManager()
     
