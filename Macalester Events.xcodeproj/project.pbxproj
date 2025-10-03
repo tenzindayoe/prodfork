@@ -24,18 +24,18 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		2DE6BC012D84177700B8B948 /* MacEvents.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MacEvents.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		2DE6BC012D84177700B8B948 /* Macalester Events.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Macalester Events.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		2DE6BC122D84177F00B8B948 /* MacEventsTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MacEventsTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		2DE6BC1C2D84177F00B8B948 /* MacEventsUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MacEventsUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
-		B82E8B492E8C836800BFBF56 /* Exceptions for "MacEvents" folder in "MacEvents" target */ = {
+		B82E8B492E8C836800BFBF56 /* Exceptions for "MacEvents" folder in "Macalester Events" target */ = {
 			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
 			membershipExceptions = (
 				Info.plist,
 			);
-			target = 2DE6BC002D84177700B8B948 /* MacEvents */;
+			target = 2DE6BC002D84177700B8B948 /* Macalester Events */;
 		};
 /* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
 
@@ -43,7 +43,7 @@
 		2DE6BC032D84177700B8B948 /* MacEvents */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
 			exceptions = (
-				B82E8B492E8C836800BFBF56 /* Exceptions for "MacEvents" folder in "MacEvents" target */,
+				B82E8B492E8C836800BFBF56 /* Exceptions for "MacEvents" folder in "Macalester Events" target */,
 			);
 			path = MacEvents;
 			sourceTree = "<group>";
@@ -98,7 +98,7 @@
 		2DE6BC022D84177700B8B948 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				2DE6BC012D84177700B8B948 /* MacEvents.app */,
+				2DE6BC012D84177700B8B948 /* Macalester Events.app */,
 				2DE6BC122D84177F00B8B948 /* MacEventsTests.xctest */,
 				2DE6BC1C2D84177F00B8B948 /* MacEventsUITests.xctest */,
 			);
@@ -108,9 +108,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		2DE6BC002D84177700B8B948 /* MacEvents */ = {
+		2DE6BC002D84177700B8B948 /* Macalester Events */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 2DE6BC262D84177F00B8B948 /* Build configuration list for PBXNativeTarget "MacEvents" */;
+			buildConfigurationList = 2DE6BC262D84177F00B8B948 /* Build configuration list for PBXNativeTarget "Macalester Events" */;
 			buildPhases = (
 				2DE6BBFD2D84177700B8B948 /* Sources */,
 				2DE6BBFE2D84177700B8B948 /* Frameworks */,
@@ -123,11 +123,11 @@
 			fileSystemSynchronizedGroups = (
 				2DE6BC032D84177700B8B948 /* MacEvents */,
 			);
-			name = MacEvents;
+			name = "Macalester Events";
 			packageProductDependencies = (
 			);
 			productName = MacEvents;
-			productReference = 2DE6BC012D84177700B8B948 /* MacEvents.app */;
+			productReference = 2DE6BC012D84177700B8B948 /* Macalester Events.app */;
 			productType = "com.apple.product-type.application";
 		};
 		2DE6BC112D84177F00B8B948 /* MacEventsTests */ = {
@@ -213,7 +213,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				2DE6BC002D84177700B8B948 /* MacEvents */,
+				2DE6BC002D84177700B8B948 /* Macalester Events */,
 				2DE6BC112D84177F00B8B948 /* MacEventsTests */,
 				2DE6BC1B2D84177F00B8B948 /* MacEventsUITests */,
 			);
@@ -271,12 +271,12 @@
 /* Begin PBXTargetDependency section */
 		2DE6BC142D84177F00B8B948 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 2DE6BC002D84177700B8B948 /* MacEvents */;
+			target = 2DE6BC002D84177700B8B948 /* Macalester Events */;
 			targetProxy = 2DE6BC132D84177F00B8B948 /* PBXContainerItemProxy */;
 		};
 		2DE6BC1E2D84177F00B8B948 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 2DE6BC002D84177700B8B948 /* MacEvents */;
+			target = 2DE6BC002D84177700B8B948 /* Macalester Events */;
 			targetProxy = 2DE6BC1D2D84177F00B8B948 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -588,7 +588,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		2DE6BC262D84177F00B8B948 /* Build configuration list for PBXNativeTarget "MacEvents" */ = {
+		2DE6BC262D84177F00B8B948 /* Build configuration list for PBXNativeTarget "Macalester Events" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				2DE6BC272D84177F00B8B948 /* Debug */,
