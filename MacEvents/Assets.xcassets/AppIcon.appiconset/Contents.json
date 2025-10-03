@@ -1,7 +1,7 @@
 {
   "images" : [
     {
-      "filename" : "final-image.jpg",
+      "filename" : "Macalester Events.png",
       "idiom" : "universal",
       "platform" : "ios",
       "size" : "1024x1024"
@@ -13,6 +13,7 @@
           "value" : "dark"
         }
       ],
+      "filename" : "Macalester Events 1.png",
       "idiom" : "universal",
       "platform" : "ios",
       "size" : "1024x1024"
@@ -24,26 +25,31 @@
           "value" : "tinted"
         }
       ],
+      "filename" : "Macalester Events 2.png",
       "idiom" : "universal",
       "platform" : "ios",
       "size" : "1024x1024"
     },
     {
+      "filename" : "Macalester Events16.png",
       "idiom" : "mac",
       "scale" : "1x",
       "size" : "16x16"
     },
     {
+      "filename" : "Macalester Events32.png",
       "idiom" : "mac",
       "scale" : "2x",
       "size" : "16x16"
     },
     {
+      "filename" : "Macalester Events32 1.png",
       "idiom" : "mac",
       "scale" : "1x",
       "size" : "32x32"
     },
     {
+      "filename" : "Macalester Events 3.png",
       "idiom" : "mac",
       "scale" : "2x",
       "size" : "32x32"
