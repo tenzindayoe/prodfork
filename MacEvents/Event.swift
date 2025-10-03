@@ -10,8 +10,45 @@ import SwiftUI
 import CoreLocation
 
 ///
+///
+///
+///
 /// A struct that represents a Macalester event
 ///
+///
+///
+struct ConfigData: Codable {
+    let urls: [String]
+    let locationImages: [String: String]
+}
+
+
+class ConfigManager {
+    static let shared = ConfigManager()
+    var config: ConfigData?
+
+    private init() {
+        self.config = loadConfig()
+    }
+
+    private func loadConfig() -> ConfigData? {
+        guard let url = Bundle.main.url(forResource: "Config", withExtension: "json") else {
+            print("❌ Config.json not found in bundle")
+            return nil
+        }
+        
+        do {
+            let data = try Data(contentsOf: url)
+            let decoded = try JSONDecoder().decode(ConfigData.self, from: data)
+            return decoded
+        } catch {
+            print("❌ Error reading Config.json: \(error)")
+            return nil
+        }
+    }
+}
+
+
 struct Event: Identifiable, Codable, Comparable {
     var id: String
     var title: String
@@ -57,41 +94,16 @@ struct Event: Identifiable, Codable, Comparable {
      image depending on what the image is being used for
      */
     func setImage(location: String, defaultImage: String) -> Image {
-        if location.contains("Janet"){
-            return Image("Janet Wallace Fine Arts Center")
-        } else if location.contains("Olin") {
-            return Image ("Olin Rice")
-        } else if location.contains("DeWitt") {
-            return Image ("DeWitt Wallace Library")
-        } else if location.contains("Music") {
-            return Image ("Janet Wallace Fine Arts Center")
-        } else if location.contains("Janet") {
-            return Image ("Janet Wallace Fine Arts Center")
-        } else if location.contains("Theater") {
-                return Image ("Janet Wallace Fine Arts Center")
-        } else if location.contains("Dance") {
-                return Image ("Janet Wallace Fine Arts Center")
-        } else if location.contains("Campus Center") {
-                return Image ("Campus Center")
-        } else if location.contains("Lawn") {
-                return Image ("Great Lawn")
-        } else if location.contains("Kagin") {
-            return Image ("Kagin")
-        } else if location.contains("Stadium") {
-            return Image ("Stadium")
-        } else if location.contains("Leonard") {
-            return Image ("Leonard")
-        } else if location.contains("Markim") {
-            return Image ("MarkimHall")
-        } else if location.contains("Main") {
-            return Image ("OldMain")
-        } else if location.contains("Chapel") {
-            return Image ("Weyerhaeuser Chapel")
-        } else if location.contains("Weyerhaeuser Hall") {
-            return Image ("Weyerhaeuser Hall")
-        } else {
+            guard let locationImages = ConfigManager.shared.config?.locationImages else {
+                return Image(defaultImage)
+            }
+
+            // Look for first keyword that matches
+            if let match = locationImages.first(where: { location.contains($0.key) }) {
+                return Image(match.value)
+            }
+
             return Image(defaultImage)
-        }
     }
 }
 

@@ -9,9 +9,13 @@ import SwiftUI
 
 @main
 struct MacEventsApp: App {
+    @StateObject private var liked = LikedStore()
+
     var body: some Scene {
         WindowGroup {
-            EventHome()
+            RootView()
+                .environmentObject(liked)
+                
         }
     }
     

@@ -1,0 +1,23 @@
+{
+  "urls": [
+    "https://apple.com",
+    "https://developer.apple.com"
+  ],
+  "locationImages": {
+    "Janet": "Janet Wallace Fine Arts Center",
+    "Music": "Janet Wallace Fine Arts Center",
+    "Theater": "Janet Wallace Fine Arts Center",
+    "Dance": "Janet Wallace Fine Arts Center",
+    "Olin": "Olin Rice",
+    "DeWitt": "DeWitt Wallace Library",
+    "Campus Center": "Campus Center",
+    "Lawn": "Great Lawn",
+    "Kagin": "Kagin",
+    "Stadium": "Stadium",
+    "Leonard": "Leonard",
+    "Markim": "MarkimHall",
+    "Main": "OldMain",
+    "Chapel": "Weyerhaeuser Chapel",
+    "Weyerhaeuser Hall": "Weyerhaeuser Hall"
+  }
+}

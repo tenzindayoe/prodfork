@@ -10,13 +10,13 @@ import SwiftUI
 
 ///
 /// An image formatted in the shape of a circle with detailling
-/// 
+///
 struct CircleImage: View {
     var image: Image
     var body: some View {
         image
             .resizable()
-            .frame(width: 200, height: 200)
+            .frame(width: 174, height: 174)
             .clipShape(Circle())
             .overlay {
                 Circle().stroke(.white, lineWidth: 4)
