@@ -15,10 +15,6 @@ struct RootView: View {
                     Label("Liked", systemImage: "heart")
                 }
 
-//            MacAI() // 👈 placeholder
-//                .tabItem {
-//                    Label("Mac AI", systemImage: "sparkles")
-//                }
         }
     }
 }

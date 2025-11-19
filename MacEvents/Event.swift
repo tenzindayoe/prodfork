@@ -8,6 +8,7 @@
 import Foundation
 import SwiftUI
 import CoreLocation
+import UIKit
 
 ///
 ///
@@ -68,6 +69,9 @@ struct Event: Identifiable, Codable, Comparable {
         return setImage(location: location, defaultImage: "MacLogoTextless")
     }
     
+    func checkIfDateIsNull() -> Bool {
+        return self.date.isEmpty
+    }
     /**
      Converts date string into a date object for comparison
      */
@@ -94,16 +98,19 @@ struct Event: Identifiable, Codable, Comparable {
      image depending on what the image is being used for
      */
     func setImage(location: String, defaultImage: String) -> Image {
-            guard let locationImages = ConfigManager.shared.config?.locationImages else {
-                return Image(defaultImage)
-            }
+            let imageName: String = {
+                guard let locationImages = ConfigManager.shared.config?.locationImages else {
+                    return defaultImage
+                }
+                if let match = locationImages.first(where: { location.contains($0.key) }) {
+                    return match.value
+                }
+                return defaultImage
+            }()
 
-            // Look for first keyword that matches
-            if let match = locationImages.first(where: { location.contains($0.key) }) {
-                return Image(match.value)
+            if UIImage(named: imageName) != nil {
+                return Image(imageName)
             }
-
-            return Image(defaultImage)
+            return Image(systemName: "photo")
     }
 }
-

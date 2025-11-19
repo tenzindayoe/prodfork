@@ -19,7 +19,5 @@ struct MacEventsApp: App {
         }
     }
     
-    init() {
-        UNUserNotificationCenter.current().delegate = NotificationDelegate.shared
-    }
+    init() {}
 }

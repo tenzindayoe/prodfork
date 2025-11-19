@@ -1,0 +1,38 @@
+{
+  "configurations" : [
+    {
+      "id" : "BE4994FC-03D3-4EAF-B638-F3E528E6B1C3",
+      "name" : "Test Scheme Action",
+      "options" : {
+
+      }
+    }
+  ],
+  "defaultOptions" : {
+    "performanceAntipatternCheckerEnabled" : true,
+    "targetForVariableExpansion" : {
+      "containerPath" : "container:MacEvents.xcodeproj",
+      "identifier" : "2DE6BC002D84177700B8B948",
+      "name" : "MacEvents"
+    }
+  },
+  "testTargets" : [
+    {
+      "parallelizable" : true,
+      "target" : {
+        "containerPath" : "container:MacEvents.xcodeproj",
+        "identifier" : "2DE6BC112D84177F00B8B948",
+        "name" : "MacEventsTests"
+      }
+    },
+    {
+      "parallelizable" : true,
+      "target" : {
+        "containerPath" : "container:MacEvents.xcodeproj",
+        "identifier" : "2DE6BC1B2D84177F00B8B948",
+        "name" : "MacEventsUITests"
+      }
+    }
+  ],
+  "version" : 1
+}
