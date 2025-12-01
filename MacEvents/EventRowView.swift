@@ -18,7 +18,7 @@ struct EventRowView: View {
                     .font(.headline)
                     .foregroundStyle(.primary)
                     .lineLimit(2)
-
+                
                 if let time = event.time, !time.isEmpty {
                     Text(time)
                         .font(.subheadline)

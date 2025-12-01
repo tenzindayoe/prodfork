@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Scheme
-   LastUpgradeVersion = "2610"
+   LastUpgradeVersion = "2600"
    version = "1.7">
    <BuildAction
       parallelizeBuildables = "YES"
@@ -16,9 +16,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "2DE6BC002D84177700B8B948"
-               BuildableName = "MacEvents.app"
-               BlueprintName = "MacEvents"
-               ReferencedContainer = "container:MacEvents.xcodeproj">
+               BuildableName = "Macalester Events.app"
+               BlueprintName = "Macalester Events"
+               ReferencedContainer = "container:Macalester Events.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -27,40 +27,8 @@
       buildConfiguration = "Debug"
       selectedDebuggerIdentifier = "Xcode.DebuggerFoundation.Debugger.LLDB"
       selectedLauncherIdentifier = "Xcode.DebuggerFoundation.Launcher.LLDB"
-      shouldUseLaunchSchemeArgsEnv = "YES">
-      <TestPlans>
-         <TestPlanReference
-            reference = "container:j.xctestplan"
-            default = "YES">
-         </TestPlanReference>
-         <TestPlanReference
-            reference = "container:TestPlan.xctestplan">
-         </TestPlanReference>
-      </TestPlans>
-      <Testables>
-         <TestableReference
-            skipped = "NO"
-            parallelizable = "YES">
-            <BuildableReference
-               BuildableIdentifier = "primary"
-               BlueprintIdentifier = "2DE6BC112D84177F00B8B948"
-               BuildableName = "MacEventsTests.xctest"
-               BlueprintName = "MacEventsTests"
-               ReferencedContainer = "container:MacEvents.xcodeproj">
-            </BuildableReference>
-         </TestableReference>
-         <TestableReference
-            skipped = "NO"
-            parallelizable = "YES">
-            <BuildableReference
-               BuildableIdentifier = "primary"
-               BlueprintIdentifier = "2DE6BC1B2D84177F00B8B948"
-               BuildableName = "MacEventsUITests.xctest"
-               BlueprintName = "MacEventsUITests"
-               ReferencedContainer = "container:MacEvents.xcodeproj">
-            </BuildableReference>
-         </TestableReference>
-      </Testables>
+      shouldUseLaunchSchemeArgsEnv = "YES"
+      shouldAutocreateTestPlan = "YES">
    </TestAction>
    <LaunchAction
       buildConfiguration = "Debug"
@@ -77,9 +45,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "2DE6BC002D84177700B8B948"
-            BuildableName = "MacEvents.app"
-            BlueprintName = "MacEvents"
-            ReferencedContainer = "container:MacEvents.xcodeproj">
+            BuildableName = "Macalester Events.app"
+            BlueprintName = "Macalester Events"
+            ReferencedContainer = "container:Macalester Events.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </LaunchAction>
@@ -94,9 +62,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "2DE6BC002D84177700B8B948"
-            BuildableName = "MacEvents.app"
-            BlueprintName = "MacEvents"
-            ReferencedContainer = "container:MacEvents.xcodeproj">
+            BuildableName = "Macalester Events.app"
+            BlueprintName = "Macalester Events"
+            ReferencedContainer = "container:Macalester Events.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>

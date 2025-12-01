@@ -6,10 +6,6 @@
 	objectVersion = 77;
 	objects = {
 
-/* Begin PBXBuildFile section */
-		B8BD5B742EC69CE400AB308F /* TestPlan.xctestplan in Resources */ = {isa = PBXBuildFile; fileRef = B8BD5B732EC69CE400AB308F /* TestPlan.xctestplan */; };
-/* End PBXBuildFile section */
-
 /* Begin PBXContainerItemProxy section */
 		2DE6BC132D84177F00B8B948 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -28,30 +24,14 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		2DE6BC012D84177700B8B948 /* MacEvents.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MacEvents.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		2DE6BC012D84177700B8B948 /* Macalester Events.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Macalester Events.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		2DE6BC122D84177F00B8B948 /* MacEventsTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MacEventsTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		2DE6BC1C2D84177F00B8B948 /* MacEventsUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MacEventsUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		B8BD5B632EC69B5F00AB308F /* _Testing_Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = _Testing_Foundation.framework; path = Platforms/MacOSX.platform/Developer/Library/Frameworks/_Testing_Foundation.framework; sourceTree = DEVELOPER_DIR; };
-		B8BD5B642EC69B5F00AB308F /* Testing.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Testing.framework; path = Platforms/MacOSX.platform/Developer/Library/Frameworks/Testing.framework; sourceTree = DEVELOPER_DIR; };
-		B8BD5B732EC69CE400AB308F /* TestPlan.xctestplan */ = {isa = PBXFileReference; lastKnownFileType = text; path = TestPlan.xctestplan; sourceTree = "<group>"; };
 /* End PBXFileReference section */
-
-/* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
-		B8C8BDEB2EC69E43006FF52F /* Exceptions for "MacEvents" folder in "MacEvents" target */ = {
-			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
-			membershipExceptions = (
-				Info.plist,
-			);
-			target = 2DE6BC002D84177700B8B948 /* MacEvents */;
-		};
-/* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
 		2DE6BC032D84177700B8B948 /* MacEvents */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
-			exceptions = (
-				B8C8BDEB2EC69E43006FF52F /* Exceptions for "MacEvents" folder in "MacEvents" target */,
-			);
 			path = MacEvents;
 			sourceTree = "<group>";
 		};
@@ -60,7 +40,7 @@
 			path = MacEventsTests;
 			sourceTree = "<group>";
 		};
-		B8BD5B602EC69B3300AB308F /* MacEventsUITests */ = {
+		2DE6BC1F2D84177F00B8B948 /* MacEventsUITests */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
 			path = MacEventsUITests;
 			sourceTree = "<group>";
@@ -95,11 +75,9 @@
 		2DE6BBF82D84177700B8B948 = {
 			isa = PBXGroup;
 			children = (
-				B8BD5B732EC69CE400AB308F /* TestPlan.xctestplan */,
 				2DE6BC032D84177700B8B948 /* MacEvents */,
 				2DE6BC152D84177F00B8B948 /* MacEventsTests */,
-				B8BD5B602EC69B3300AB308F /* MacEventsUITests */,
-				B8BD5B622EC69B5F00AB308F /* Frameworks */,
+				2DE6BC1F2D84177F00B8B948 /* MacEventsUITests */,
 				2DE6BC022D84177700B8B948 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -107,28 +85,19 @@
 		2DE6BC022D84177700B8B948 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				2DE6BC012D84177700B8B948 /* MacEvents.app */,
+				2DE6BC012D84177700B8B948 /* Macalester Events.app */,
 				2DE6BC122D84177F00B8B948 /* MacEventsTests.xctest */,
 				2DE6BC1C2D84177F00B8B948 /* MacEventsUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		B8BD5B622EC69B5F00AB308F /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-				B8BD5B632EC69B5F00AB308F /* _Testing_Foundation.framework */,
-				B8BD5B642EC69B5F00AB308F /* Testing.framework */,
-			);
-			name = Frameworks;
-			sourceTree = "<group>";
-		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		2DE6BC002D84177700B8B948 /* MacEvents */ = {
+		2DE6BC002D84177700B8B948 /* Macalester Events */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 2DE6BC262D84177F00B8B948 /* Build configuration list for PBXNativeTarget "MacEvents" */;
+			buildConfigurationList = 2DE6BC262D84177F00B8B948 /* Build configuration list for PBXNativeTarget "Macalester Events" */;
 			buildPhases = (
 				2DE6BBFD2D84177700B8B948 /* Sources */,
 				2DE6BBFE2D84177700B8B948 /* Frameworks */,
@@ -141,11 +110,11 @@
 			fileSystemSynchronizedGroups = (
 				2DE6BC032D84177700B8B948 /* MacEvents */,
 			);
-			name = MacEvents;
+			name = "Macalester Events";
 			packageProductDependencies = (
 			);
 			productName = MacEvents;
-			productReference = 2DE6BC012D84177700B8B948 /* MacEvents.app */;
+			productReference = 2DE6BC012D84177700B8B948 /* Macalester Events.app */;
 			productType = "com.apple.product-type.application";
 		};
 		2DE6BC112D84177F00B8B948 /* MacEventsTests */ = {
@@ -185,7 +154,7 @@
 				2DE6BC1E2D84177F00B8B948 /* PBXTargetDependency */,
 			);
 			fileSystemSynchronizedGroups = (
-				B8BD5B602EC69B3300AB308F /* MacEventsUITests */,
+				2DE6BC1F2D84177F00B8B948 /* MacEventsUITests */,
 			);
 			name = MacEventsUITests;
 			packageProductDependencies = (
@@ -206,9 +175,11 @@
 				TargetAttributes = {
 					2DE6BC002D84177700B8B948 = {
 						CreatedOnToolsVersion = 16.2;
+						LastSwiftMigration = 2610;
 					};
 					2DE6BC112D84177F00B8B948 = {
 						CreatedOnToolsVersion = 16.2;
+						LastSwiftMigration = 2610;
 						TestTargetID = 2DE6BC002D84177700B8B948;
 					};
 					2DE6BC1B2D84177F00B8B948 = {
@@ -218,7 +189,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 2DE6BBFC2D84177700B8B948 /* Build configuration list for PBXProject "MacEvents" */;
+			buildConfigurationList = 2DE6BBFC2D84177700B8B948 /* Build configuration list for PBXProject "Macalester Events" */;
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
 			knownRegions = (
@@ -227,14 +198,12 @@
 			);
 			mainGroup = 2DE6BBF82D84177700B8B948;
 			minimizedProjectReferenceProxies = 1;
-			packageReferences = (
-			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = 2DE6BC022D84177700B8B948 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				2DE6BC002D84177700B8B948 /* MacEvents */,
+				2DE6BC002D84177700B8B948 /* Macalester Events */,
 				2DE6BC112D84177F00B8B948 /* MacEventsTests */,
 				2DE6BC1B2D84177F00B8B948 /* MacEventsUITests */,
 			);
@@ -246,7 +215,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B8BD5B742EC69CE400AB308F /* TestPlan.xctestplan in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -293,12 +261,12 @@
 /* Begin PBXTargetDependency section */
 		2DE6BC142D84177F00B8B948 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 2DE6BC002D84177700B8B948 /* MacEvents */;
+			target = 2DE6BC002D84177700B8B948 /* Macalester Events */;
 			targetProxy = 2DE6BC132D84177F00B8B948 /* PBXContainerItemProxy */;
 		};
 		2DE6BC1E2D84177F00B8B948 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 2DE6BC002D84177700B8B948 /* MacEvents */;
+			target = 2DE6BC002D84177700B8B948 /* Macalester Events */;
 			targetProxy = 2DE6BC1D2D84177F00B8B948 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -423,17 +391,17 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_ENTITLEMENTS = MacEvents/MacEvents.entitlements;
+				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = YES;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_ASSET_PATHS = "\"MacEvents/Preview Content\"";
+				DEVELOPMENT_ASSET_PATHS = "MacEvents/Preview\\ Content";
 				DEVELOPMENT_TEAM = QY5YK8YYL5;
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = MacEvents/Info.plist;
-				INFOPLIST_KEY_LSApplicationCategoryType = "";
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.utilities";
 				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "User location is required to place pin on campus map.";
 				INFOPLIST_KEY_NSMicrophoneUsageDescription = "We need microphone access to let you dictate questions to Scottie AI.";
 				INFOPLIST_KEY_NSSpeechRecognitionUsageDescription = "We use speech recognition so you can ask Scottie AI questions by voice.";
@@ -443,9 +411,11 @@
 				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphonesimulator*]" = YES;
 				"INFOPLIST_KEY_UILaunchScreen_Generation[sdk=iphoneos*]" = YES;
 				"INFOPLIST_KEY_UILaunchScreen_Generation[sdk=iphonesimulator*]" = YES;
+				INFOPLIST_KEY_UIStatusBarHidden = NO;
 				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphoneos*]" = UIStatusBarStyleDefault;
 				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphonesimulator*]" = UIStatusBarStyleDefault;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				IPHONEOS_DEPLOYMENT_TARGET = 18.2;
 				LD_RUNPATH_SEARCH_PATHS = "@executable_path/Frameworks";
 				"LD_RUNPATH_SEARCH_PATHS[sdk=macosx*]" = "@executable_path/../Frameworks";
@@ -455,10 +425,12 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SDKROOT = auto;
-				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx xros xrsimulator";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2,7";
+				TARGETED_DEVICE_FAMILY = "1,7";
 				XROS_DEPLOYMENT_TARGET = 2.2;
 			};
 			name = Debug;
@@ -468,17 +440,17 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_ENTITLEMENTS = MacEvents/MacEvents.entitlements;
+				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = YES;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_ASSET_PATHS = "\"MacEvents/Preview Content\"";
+				DEVELOPMENT_ASSET_PATHS = "MacEvents/Preview\\ Content";
 				DEVELOPMENT_TEAM = QY5YK8YYL5;
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = MacEvents/Info.plist;
-				INFOPLIST_KEY_LSApplicationCategoryType = "";
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.utilities";
 				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "User location is required to place pin on campus map.";
 				INFOPLIST_KEY_NSMicrophoneUsageDescription = "We need microphone access to let you dictate questions to Scottie AI.";
 				INFOPLIST_KEY_NSSpeechRecognitionUsageDescription = "We use speech recognition so you can ask Scottie AI questions by voice.";
@@ -488,9 +460,11 @@
 				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphonesimulator*]" = YES;
 				"INFOPLIST_KEY_UILaunchScreen_Generation[sdk=iphoneos*]" = YES;
 				"INFOPLIST_KEY_UILaunchScreen_Generation[sdk=iphonesimulator*]" = YES;
+				INFOPLIST_KEY_UIStatusBarHidden = NO;
 				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphoneos*]" = UIStatusBarStyleDefault;
 				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphonesimulator*]" = UIStatusBarStyleDefault;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				IPHONEOS_DEPLOYMENT_TARGET = 18.2;
 				LD_RUNPATH_SEARCH_PATHS = "@executable_path/Frameworks";
 				"LD_RUNPATH_SEARCH_PATHS[sdk=macosx*]" = "@executable_path/../Frameworks";
@@ -500,10 +474,11 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SDKROOT = auto;
-				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx xros xrsimulator";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2,7";
+				TARGETED_DEVICE_FAMILY = "1,7";
 				XROS_DEPLOYMENT_TARGET = 2.2;
 			};
 			name = Release;
@@ -512,10 +487,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
-				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Apple Development";
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = QY5YK8YYL5;
+				DEVELOPMENT_TEAM = APR7SJD997;
 				GENERATE_INFOPLIST_FILE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 18.2;
 				MACOSX_DEPLOYMENT_TARGET = 15.2;
@@ -523,11 +498,13 @@
 				PRODUCT_BUNDLE_IDENTIFIER = MacEventsTeam.MacEventsTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = auto;
-				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx xros xrsimulator";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
 				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2,7";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/MacEvents.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/MacEvents";
+				TARGETED_DEVICE_FAMILY = 1;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Macalester Events.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/Macalester Events";
 				XROS_DEPLOYMENT_TARGET = 2.2;
 			};
 			name = Debug;
@@ -536,10 +513,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
-				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Apple Development";
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = QY5YK8YYL5;
+				DEVELOPMENT_TEAM = APR7SJD997;
 				GENERATE_INFOPLIST_FILE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 18.2;
 				MACOSX_DEPLOYMENT_TARGET = 15.2;
@@ -547,11 +524,12 @@
 				PRODUCT_BUNDLE_IDENTIFIER = MacEventsTeam.MacEventsTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = auto;
-				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx xros xrsimulator";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
 				SWIFT_EMIT_LOC_STRINGS = NO;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2,7";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/MacEvents.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/MacEvents";
+				TARGETED_DEVICE_FAMILY = 1;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Macalester Events.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/Macalester Events";
 				XROS_DEPLOYMENT_TARGET = 2.2;
 			};
 			name = Release;
@@ -562,7 +540,7 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = QY5YK8YYL5;
+				DEVELOPMENT_TEAM = APR7SJD997;
 				GENERATE_INFOPLIST_FILE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 18.2;
 				MACOSX_DEPLOYMENT_TARGET = 15.2;
@@ -586,7 +564,7 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = QY5YK8YYL5;
+				DEVELOPMENT_TEAM = APR7SJD997;
 				GENERATE_INFOPLIST_FILE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 18.2;
 				MACOSX_DEPLOYMENT_TARGET = 15.2;
@@ -606,7 +584,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		2DE6BBFC2D84177700B8B948 /* Build configuration list for PBXProject "MacEvents" */ = {
+		2DE6BBFC2D84177700B8B948 /* Build configuration list for PBXProject "Macalester Events" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				2DE6BC242D84177F00B8B948 /* Debug */,
@@ -615,7 +593,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		2DE6BC262D84177F00B8B948 /* Build configuration list for PBXNativeTarget "MacEvents" */ = {
+		2DE6BC262D84177F00B8B948 /* Build configuration list for PBXNativeTarget "Macalester Events" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				2DE6BC272D84177F00B8B948 /* Debug */,
