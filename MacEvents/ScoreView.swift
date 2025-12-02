@@ -2,7 +2,7 @@
 //  ScoreView.swift
 //  MacEvents
 //
-//  Simple, friendly score display
+//  Vertical filling progress bar showing rank progression
 //
 
 import SwiftUI
@@ -13,62 +13,22 @@ struct ScoreView: View {
     var body: some View {
         NavigationStack {
             ScrollView {
-                VStack(spacing: 40) {
-                    // Big friendly number
-                    VStack(spacing: 8) {
+                VStack(spacing: 30) {
+                    // Score header
+                    VStack(spacing: 4) {
                         Text("\(attendance.score)")
-                            .font(.system(size: 80, weight: .bold, design: .rounded))
+                            .font(.system(size: 60, weight: .bold, design: .rounded))
                             .foregroundStyle(attendance.currentLevel.color)
                         
                         Text("events attended")
-                            .font(.title3)
+                            .font(.subheadline)
                             .foregroundStyle(.secondary)
                     }
-                    .padding(.top, 40)
+                    .padding(.top, 20)
                     
-                    // Current level
-                    VStack(spacing: 12) {
-                        Text(attendance.currentLevel.emoji)
-                            .font(.system(size: 60))
-                        
-                        Text(attendance.currentLevel.name)
-                            .font(.title2.bold())
-                        
-                        Text(attendance.currentLevel.description)
-                            .font(.body)
-                            .foregroundStyle(.secondary)
-                            .multilineTextAlignment(.center)
-                            .padding(.horizontal)
-                    }
-                    
-                    // Progress to next level
-                    if let next = attendance.nextLevel {
-                        VStack(spacing: 16) {
-                            // Simple progress bar
-                            VStack(spacing: 8) {
-                                ProgressView(value: attendance.progressToNextLevel)
-                                    .tint(attendance.currentLevel.color)
-                                    .scaleEffect(y: 2)
-                                
-                                HStack {
-                                    Text(attendance.currentLevel.emoji)
-                                    Spacer()
-                                    Text(next.emoji)
-                                }
-                                .font(.title3)
-                            }
-                            .padding(.horizontal, 40)
-                            
-                            Text("\(attendance.eventsToNextLevel) more to become \(next.name)")
-                                .font(.subheadline)
-                                .foregroundStyle(.secondary)
-                        }
-                    } else {
-                        // Max level reached
-                        Text("🎉 You've reached the top!")
-                            .font(.headline)
-                            .foregroundStyle(.secondary)
-                    }
+                    // Vertical progress bar
+                    verticalProgressBar
+                        .padding(.horizontal, 20)
                     
                     // All ranks
                     VStack(alignment: .leading, spacing: 0) {
@@ -127,6 +87,82 @@ struct ScoreView: View {
             }
             .navigationTitle("My Score")
         }
+    }
+    
+    // MARK: - Vertical Progress Bar
+    
+    private var verticalProgressBar: some View {
+        let levels = AttendanceStore.levels
+        let reversedLevels = Array(levels.reversed())
+        let totalLevels = levels.count
+        let rowHeight: CGFloat = 80
+        let totalHeight = CGFloat(totalLevels) * rowHeight
+        
+        // Fill based on level index (matches row positions)
+        let currentLevelIndex = levels.firstIndex(where: { $0.name == attendance.currentLevel.name }) ?? 0
+        let levelsFromBottom = CGFloat(currentLevelIndex + 1)
+        let fillHeight = (levelsFromBottom / CGFloat(totalLevels)) * totalHeight
+        
+        return HStack(alignment: .top, spacing: 16) {
+            // The vertical bar
+            ZStack(alignment: .bottom) {
+                // Background bar (gray)
+                RoundedRectangle(cornerRadius: 6)
+                    .fill(Color(.systemGray4))
+                    .frame(width: 10)
+                
+                // Filled bar (colored gradient)
+                RoundedRectangle(cornerRadius: 6)
+                    .fill(
+                        LinearGradient(
+                            colors: [.green, attendance.currentLevel.color],
+                            startPoint: .bottom,
+                            endPoint: .top
+                        )
+                    )
+                    .frame(width: 10, height: max(0, fillHeight))
+            }
+            .frame(height: totalHeight)
+            
+            // Level labels
+            VStack(alignment: .leading, spacing: 0) {
+                ForEach(Array(reversedLevels.enumerated()), id: \.element.name) { index, level in
+                    let isUnlocked = attendance.score >= level.minEvents
+                    let isCurrent = level.name == attendance.currentLevel.name
+                    
+                    HStack(spacing: 12) {
+                        Text(level.emoji)
+                            .font(.title3)
+                            .opacity(isUnlocked ? 1 : 0.4)
+                        
+                        VStack(alignment: .leading, spacing: 1) {
+                            Text(level.name)
+                                .font(isCurrent ? .subheadline.bold() : .subheadline)
+                                .foregroundStyle(isUnlocked ? .primary : .tertiary)
+                            
+                            Text("\(level.minEvents)+ events")
+                                .font(.caption2)
+                                .foregroundStyle(.secondary)
+                        }
+                        
+                        Spacer()
+                        
+                        if isCurrent {
+                            Circle()
+                                .fill(level.color)
+                                .frame(width: 10, height: 10)
+                        }
+                    }
+                    .frame(height: rowHeight)
+                    .padding(.horizontal, 12)
+                    .background(
+                        RoundedRectangle(cornerRadius: 10)
+                            .fill(isCurrent ? attendance.currentLevel.color.opacity(0.12) : Color.clear)
+                    )
+                }
+            }
+        }
+        .frame(height: totalHeight)
     }
 }
 

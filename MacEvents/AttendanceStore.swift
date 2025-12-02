@@ -25,15 +25,15 @@ class AttendanceStore: ObservableObject {
     
     private let saveKey = "AttendedEvents"
     
-    // Macalester-themed levels
+    // Gem/Metal themed levels
     static let levels: [MacLevel] = [
-        MacLevel(name: "First Year Scot", emoji: "🎒", minEvents: 0, color: .gray, description: "Welcome to Mac! Start exploring campus events."),
-        MacLevel(name: "Tartan Rookie", emoji: "🌟", minEvents: 3, color: .green, description: "You're getting the hang of campus life!"),
-        MacLevel(name: "Campus Explorer", emoji: "🧭", minEvents: 7, color: .blue, description: "You know your way around Mac events."),
-        MacLevel(name: "Mac Enthusiast", emoji: "🔥", minEvents: 15, color: .orange, description: "A true Macalester spirit!"),
-        MacLevel(name: "Scottish Legend", emoji: "⚔️", minEvents: 25, color: .purple, description: "Your dedication is legendary."),
-        MacLevel(name: "Old Main Master", emoji: "🏛️", minEvents: 40, color: .pink, description: "You've mastered campus engagement."),
-        MacLevel(name: "Mac Royalty", emoji: "👑", minEvents: 60, color: .yellow, description: "The ultimate Macalester champion!")
+        MacLevel(name: "Bronze", emoji: "🥉", minEvents: 0, color: .brown, description: "Just getting started!"),
+        MacLevel(name: "Silver", emoji: "🥈", minEvents: 3, color: .gray, description: "You're on your way!"),
+        MacLevel(name: "Gold", emoji: "🥇", minEvents: 7, color: .yellow, description: "Shining bright!"),
+        MacLevel(name: "Platinum", emoji: "🏆", minEvents: 15, color: .cyan, description: "Elite status achieved!"),
+        MacLevel(name: "Diamond", emoji: "💎", minEvents: 25, color: .blue, description: "Rare and brilliant!"),
+        MacLevel(name: "Emerald", emoji: "💚", minEvents: 40, color: .green, description: "A true gem!"),
+        MacLevel(name: "Ruby", emoji: "❤️", minEvents: 60, color: .red, description: "Legendary status!")
     ]
     
     init() {
