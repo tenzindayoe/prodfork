@@ -7,10 +7,13 @@ struct EventDetail: View {
     let event: Event
 
     @EnvironmentObject private var liked: LikedStore
+    @EnvironmentObject private var attendance: AttendanceStore
     @State private var showingShareSheet = false
+    @State private var showAttendedAnimation = false
 
     private var eventURL: URL? { URL(string: event.link) }
     private var hasCoordinates: Bool { (event.coord?.count ?? 0) == 2 }
+    private var isAttended: Bool { attendance.contains(event.id) }
 
     var body: some View {
         ScrollView {
@@ -82,6 +85,46 @@ struct EventDetail: View {
     @ViewBuilder
     private var actionButtons: some View {
         VStack(spacing: 12) {
+            // Mark as Attended button
+            Button {
+                withAnimation(.spring(response: 0.4, dampingFraction: 0.6)) {
+                    attendance.toggle(event.id)
+                    if attendance.contains(event.id) {
+                        showAttendedAnimation = true
+                        // Reset animation after delay
+                        DispatchQueue.main.asyncAfter(deadline: .now() + 1.5) {
+                            showAttendedAnimation = false
+                        }
+                    }
+                }
+            } label: {
+                HStack {
+                    Image(systemName: isAttended ? "checkmark.circle.fill" : "circle")
+                        .font(.title2)
+                    Text(isAttended ? "Attended ✓" : "Mark as Attended")
+                        .font(.headline)
+                }
+                .frame(maxWidth: .infinity)
+                .padding(.vertical, 14)
+                .background(
+                    isAttended 
+                        ? Color.orange 
+                        : Color.orange.opacity(0.15),
+                    in: RoundedRectangle(cornerRadius: 14)
+                )
+                .foregroundStyle(isAttended ? .white : .orange)
+            }
+            .scaleEffect(showAttendedAnimation ? 1.05 : 1.0)
+            .overlay {
+                if showAttendedAnimation {
+                    Text("+1 🎉")
+                        .font(.title.bold())
+                        .foregroundStyle(.orange)
+                        .offset(y: -50)
+                        .transition(.move(edge: .bottom).combined(with: .opacity))
+                }
+            }
+            
             if let url = eventURL {
                 Link(destination: url) {
                     Label("Open website", systemImage: "safari")
@@ -170,5 +213,6 @@ struct ActivityView: UIViewControllerRepresentable {
     return NavigationStack {
         EventDetail(event: event)
             .environmentObject(LikedStore())
+            .environmentObject(AttendanceStore())
     }
 }

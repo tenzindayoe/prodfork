@@ -14,6 +14,11 @@ struct RootView: View {
                 .tabItem {
                     Label("Liked", systemImage: "heart")
                 }
+            
+            ScoreView()
+                .tabItem {
+                    Label("Score", systemImage: "trophy")
+                }
         }
     }
 }
