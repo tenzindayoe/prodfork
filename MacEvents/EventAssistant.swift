@@ -9,7 +9,7 @@
 import Foundation
 import SwiftUI
 
-// Import Foundation Models when available (iOS 26+)
+// Import Foundation Models when available (iOS 26+ / Xcode 26+)
 #if canImport(FoundationModels)
 import FoundationModels
 #endif
@@ -48,6 +48,15 @@ class EventAssistant: ObservableObject {
         "Music & arts events"
     ]
     
+    // Instructions for the AI model
+    private let systemInstructions = """
+        You are a helpful assistant for Macalester College campus events.
+        Be concise, friendly, and helpful. Use emojis occasionally.
+        Answer based only on the events provided. If no events match, say so politely.
+        Format event info clearly with title, date, time, and location.
+        Keep responses brief - no more than 3-5 events at a time.
+        """
+    
     init(eventService: any EventService = EventServiceFactory.make()) {
         self.eventService = eventService
         checkAppleIntelligenceSupport()
@@ -62,10 +71,8 @@ class EventAssistant: ObservableObject {
     // MARK: - Apple Intelligence Check
     
     private func checkAppleIntelligenceSupport() {
-        // Check if running on iOS 26+ with Apple Intelligence
-        // Foundation Models framework requires iOS 26.0+
         #if canImport(FoundationModels)
-        if #available(iOS 26.0, *) {
+        if #available(iOS 26.0, macOS 26.0, *) {
             supportsAppleIntelligence = true
         } else {
             supportsAppleIntelligence = false
@@ -100,77 +107,62 @@ class EventAssistant: ObservableObject {
             await loadEvents()
         }
         
-        // Generate response
-        let response: String
-        if #available(iOS 26.0, *) {
-            response = await generateResponseWithFoundationModels(query: trimmed)
-        } else {
-            response = generateFallbackResponse(query: trimmed)
-        }
+        // Generate response using Foundation Models or fallback
+        let response = await generateResponse(query: trimmed)
         
         // Add assistant response
         messages.append(ChatMessage(content: response, isUser: false))
         isProcessing = false
     }
     
+    // MARK: - Generate Response
+    
+    private func generateResponse(query: String) async -> String {
+        #if canImport(FoundationModels)
+        if #available(iOS 26.0, macOS 26.0, *) {
+            return await generateWithFoundationModels(query: query)
+        } else {
+            return generateSmartResponse(query: query)
+        }
+        #else
+        return generateSmartResponse(query: query)
+        #endif
+    }
+    
     // MARK: - Foundation Models Response (iOS 26+)
     
-    @available(iOS 26.0, *)
-    private func generateResponseWithFoundationModels(query: String) async -> String {
+    #if canImport(FoundationModels)
+    @available(iOS 26.0, macOS 26.0, *)
+    private func generateWithFoundationModels(query: String) async -> String {
         // Build event context
         let eventContext = buildEventContext()
         let today = formattedDate(Date())
         
-        // Create prompt with context
+        // Create the prompt with event context
         let prompt = """
-        You are a helpful assistant for Macalester College campus events.
-        Be concise, friendly, and helpful. Use emojis occasionally.
+            TODAY'S DATE: \(today)
+            
+            AVAILABLE CAMPUS EVENTS:
+            \(eventContext)
+            
+            USER QUESTION: \(query)
+            """
         
-        TODAY'S DATE: \(today)
-        
-        AVAILABLE CAMPUS EVENTS:
-        \(eventContext)
-        
-        USER QUESTION: \(query)
-        
-        Answer based only on the events listed above. If no events match, say so politely.
-        Format event info clearly with title, date, time, and location.
-        """
-        
-        // Try to use Foundation Models
         do {
-            // Import and use FoundationModels framework
-            // Note: This requires iOS 26+ and Apple Intelligence enabled
-            let response = try await performFoundationModelRequest(prompt: prompt, originalQuery: query)
-            return response
-        } catch {
-            // Fallback if Foundation Models fails
-            return generateFallbackResponse(query: query)
-        }
-    }
-    
-    @available(iOS 26.0, *)
-    private func performFoundationModelRequest(prompt: String, originalQuery: String) async throws -> String {
-        #if canImport(FoundationModels)
-        // Use Apple's on-device Foundation Models for real AI inference
-        do {
-            let session = LanguageModelSession()
+            // Create a session with instructions
+            let session = LanguageModelSession(instructions: systemInstructions)
+            
+            // Generate response from the on-device LLM
             let response = try await session.respond(to: prompt)
             return response.content
         } catch {
             print("Foundation Models error: \(error). Falling back to smart search.")
-            return generateSmartResponse(query: originalQuery)
+            return generateSmartResponse(query: query)
         }
-        #else
-        // Fallback for older Xcode versions that can't import FoundationModels
-        return generateSmartResponse(query: originalQuery)
-        #endif
+    }
+    #endif
     
     // MARK: - Smart Fallback Response
-    
-    private func generateFallbackResponse(query: String) -> String {
-        return generateSmartResponse(query: query)
-    }
     
     private func generateSmartResponse(query: String) -> String {
         let lowercased = query.lowercased()
@@ -252,15 +244,15 @@ class EventAssistant: ObservableObject {
         }.sorted().prefix(5)
         
         return """
-        I'm not sure what you're looking for. Here are some upcoming events:
-        
-        \(formatEventList(events: Array(upcomingEvents)))
-        
-        💡 Try asking:
-        • "What's happening today?"
-        • "Events this weekend"
-        • "Find music events"
-        """
+            I'm not sure what you're looking for. Here are some upcoming events:
+            
+            \(formatEventList(events: Array(upcomingEvents)))
+            
+            💡 Try asking:
+            • "What's happening today?"
+            • "Events this weekend"
+            • "Find music events"
+            """
     }
     
     // MARK: - Helper Functions
@@ -297,11 +289,11 @@ class EventAssistant: ObservableObject {
         events.map { event in
             let time = event.time ?? "Time TBD"
             return """
-            📌 \(event.title)
-            📅 \(event.date)
-            🕐 \(time)
-            📍 \(event.location)
-            """
+                📌 \(event.title)
+                📅 \(event.date)
+                🕐 \(time)
+                📍 \(event.location)
+                """
         }.joined(separator: "\n\n")
     }
     
@@ -334,4 +326,3 @@ class EventAssistant: ObservableObject {
         return formatter.string(from: date)
     }
 }
-
