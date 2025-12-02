@@ -5,16 +5,20 @@ struct RootView: View {
 
     var body: some View {
         TabView {
-            EventHome() // 👈 no arguments for now
+            EventHome()
                 .tabItem {
                     Label("Home", systemImage: "house")
                 }
+            
+            ChatView()
+                .tabItem {
+                    Label("Ask Mac", systemImage: "bubble.left.and.bubble.right")
+                }
 
-            LikedEventsView() // 👈 placeholder
+            LikedEventsView()
                 .tabItem {
                     Label("Liked", systemImage: "heart")
                 }
-
         }
     }
 }
