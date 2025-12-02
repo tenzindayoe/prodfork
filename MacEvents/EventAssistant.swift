@@ -9,6 +9,11 @@
 import Foundation
 import SwiftUI
 
+// Import Foundation Models when available (iOS 26+)
+#if canImport(FoundationModels)
+import FoundationModels
+#endif
+
 // MARK: - Chat Message Model
 
 struct ChatMessage: Identifiable, Equatable {
@@ -59,11 +64,15 @@ class EventAssistant: ObservableObject {
     private func checkAppleIntelligenceSupport() {
         // Check if running on iOS 26+ with Apple Intelligence
         // Foundation Models framework requires iOS 26.0+
+        #if canImport(FoundationModels)
         if #available(iOS 26.0, *) {
             supportsAppleIntelligence = true
         } else {
             supportsAppleIntelligence = false
         }
+        #else
+        supportsAppleIntelligence = false
+        #endif
     }
     
     // MARK: - Load Events
@@ -142,25 +151,20 @@ class EventAssistant: ObservableObject {
     
     @available(iOS 26.0, *)
     private func performFoundationModelRequest(prompt: String, originalQuery: String) async throws -> String {
-        // Foundation Models API (iOS 26+)
-        // Using dynamic approach to avoid compile errors on older Xcode versions
-        
-        // For now, use the smart fallback since Foundation Models
-        // requires specific entitlements and device support
-        // This will be replaced with actual API when building with Xcode 26+
-        
-        /*
-         When building with Xcode 26+, uncomment this:
-         
-         import FoundationModels
-         
-         let session = LanguageModelSession()
-         let response = try await session.respond(to: prompt)
-         return response.content
-         */
-        
-        // Smart fallback that uses the original user query (not the full prompt)
+        #if canImport(FoundationModels)
+        // Use Apple's on-device Foundation Models for real AI inference
+        do {
+            let session = LanguageModelSession()
+            let response = try await session.respond(to: prompt)
+            return response.content
+        } catch {
+            print("Foundation Models error: \(error). Falling back to smart search.")
+            return generateSmartResponse(query: originalQuery)
+        }
+        #else
+        // Fallback for older Xcode versions that can't import FoundationModels
         return generateSmartResponse(query: originalQuery)
+        #endif
     
     // MARK: - Smart Fallback Response
     
