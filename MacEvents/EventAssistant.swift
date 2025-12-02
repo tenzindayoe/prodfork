@@ -132,7 +132,7 @@ class EventAssistant: ObservableObject {
         do {
             // Import and use FoundationModels framework
             // Note: This requires iOS 26+ and Apple Intelligence enabled
-            let response = try await performFoundationModelRequest(prompt: prompt)
+            let response = try await performFoundationModelRequest(prompt: prompt, originalQuery: query)
             return response
         } catch {
             // Fallback if Foundation Models fails
@@ -141,7 +141,7 @@ class EventAssistant: ObservableObject {
     }
     
     @available(iOS 26.0, *)
-    private func performFoundationModelRequest(prompt: String) async throws -> String {
+    private func performFoundationModelRequest(prompt: String, originalQuery: String) async throws -> String {
         // Foundation Models API (iOS 26+)
         // Using dynamic approach to avoid compile errors on older Xcode versions
         
@@ -159,9 +159,8 @@ class EventAssistant: ObservableObject {
          return response.content
          */
         
-        // Smart fallback that simulates AI behavior
-        return generateSmartResponse(query: prompt)
-    }
+        // Smart fallback that uses the original user query (not the full prompt)
+        return generateSmartResponse(query: originalQuery)
     
     // MARK: - Smart Fallback Response
     
@@ -294,10 +293,10 @@ class EventAssistant: ObservableObject {
         events.map { event in
             let time = event.time ?? "Time TBD"
             return """
-            📌 **\(event.title)**
-               📅 \(event.date)
-               🕐 \(time)
-               📍 \(event.location)
+            📌 \(event.title)
+            📅 \(event.date)
+            🕐 \(time)
+            📍 \(event.location)
             """
         }.joined(separator: "\n\n")
     }
