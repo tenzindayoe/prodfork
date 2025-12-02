@@ -9,11 +9,6 @@ struct RootView: View {
                 .tabItem {
                     Label("Home", systemImage: "house")
                 }
-            
-            ChatView()
-                .tabItem {
-                    Label("Ask Mac", systemImage: "bubble.left.and.bubble.right")
-                }
 
             LikedEventsView()
                 .tabItem {
