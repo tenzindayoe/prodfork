@@ -27,9 +27,9 @@ class AttendanceStore: ObservableObject {
     
     // Macalester-themed levels
     static let levels: [MacLevel] = [
-        MacLevel(name: "First Year Scot", emoji: "🏫", minEvents: 0, color: .gray, description: "Welcome to Mac! Start exploring campus events."),
-        MacLevel(name: "Tartan Rookie", emoji: "🏴󠁧󠁢󠁳󠁣󠁴󠁿", minEvents: 3, color: .green, description: "You're getting the hang of campus life!"),
-        MacLevel(name: "Campus Explorer", emoji: "🗺️", minEvents: 7, color: .blue, description: "You know your way around Mac events."),
+        MacLevel(name: "First Year Scot", emoji: "🎒", minEvents: 0, color: .gray, description: "Welcome to Mac! Start exploring campus events."),
+        MacLevel(name: "Tartan Rookie", emoji: "🌟", minEvents: 3, color: .green, description: "You're getting the hang of campus life!"),
+        MacLevel(name: "Campus Explorer", emoji: "🧭", minEvents: 7, color: .blue, description: "You know your way around Mac events."),
         MacLevel(name: "Mac Enthusiast", emoji: "🔥", minEvents: 15, color: .orange, description: "A true Macalester spirit!"),
         MacLevel(name: "Scottish Legend", emoji: "⚔️", minEvents: 25, color: .purple, description: "Your dedication is legendary."),
         MacLevel(name: "Old Main Master", emoji: "🏛️", minEvents: 40, color: .pink, description: "You've mastered campus engagement."),
